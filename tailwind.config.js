@@ -8,22 +8,23 @@ export default {
         extend: {
             colors: {
                 bg: {
-                    dark: '#050505',
-                    glass: 'rgba(255, 255, 255, 0.05)',
+                    dark: '#05010d', // Deep violet-black
+                    glass: 'rgba(139, 92, 246, 0.05)', // Violet tinted glass
                 },
-                indigo: {
-                    900: '#1a1a2e',
+                violet: {
+                    400: '#a78bfa',
+                    500: '#8b5cf6',
+                    600: '#7c3aed',
+                    glow: '#bc9aff',
                 },
                 purple: {
-                    DEFAULT: '#7b2cbf',
-                    glow: '#9d4edo',
+                    DEFAULT: '#7c3aed',
+                    glow: '#a78bfa',
                 },
-                magenta: {
-                    DEFAULT: '#f72585',
-                },
+                // Keeping these for gradients but shifting towards violet/blue
                 cyan: {
-                    DEFAULT: '#4cc9f0',
-                    glow: '#72efdd',
+                    DEFAULT: '#a78bfa', // Muted to violet-ish
+                    glow: '#c4b5fd',
                 },
             },
             fontFamily: {

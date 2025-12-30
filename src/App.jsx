@@ -8,6 +8,7 @@ import { About, Domains, Gallery, Timeline, PastWinners, Prizes, Sponsors, FAQs 
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [view, setView] = useState('home');
 
   return (
     <>
@@ -16,18 +17,25 @@ function App() {
       {!loading && (
         <div className="relative min-h-screen text-white selection:bg-cyan-500 selection:text-black">
           <Background />
-          <Navbar />
+          <Navbar setActiveView={setView} />
 
           <main>
-            <Hero />
-            <About />
-            <Domains />
-            <Gallery />
-            <Timeline />
-            <PastWinners />
-            <Prizes />
-            <Sponsors />
-            <FAQs />
+            {view === 'home' && (
+              <>
+                <Hero />
+                <About />
+                <Domains />
+                <Gallery />
+                <Timeline />
+                <PastWinners />
+                <Prizes />
+                <Sponsors />
+              </>
+            )}
+
+            {view === 'faq' && (
+              <FAQs />
+            )}
           </main>
 
           <Footer />
