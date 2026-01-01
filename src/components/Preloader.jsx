@@ -68,7 +68,11 @@ const Preloader = ({ onLoadingComplete }) => {
                     <div className="relative z-10 flex flex-col items-center justify-center w-full px-8">
 
                         {/* ACE PRESENTS - Grouped for perfect alignment */}
-                        <div className="flex flex-col items-center mb-6">
+                        <motion.div
+                            className="flex flex-col items-center mb-6"
+                            animate={{ y: [0, -5, 0] }}
+                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                        >
                             <motion.div
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
@@ -96,7 +100,7 @@ const Preloader = ({ onLoadingComplete }) => {
                                 transition={{ duration: 2, delay: 1, ease: "easeInOut" }}
                                 className="h-[1px] bg-gradient-to-r from-transparent via-[#ffd700] to-transparent mt-2 opacity-50"
                             />
-                        </div>
+                        </motion.div>
 
                         {/* PRAJWALAN - The Main Reveal */}
                         <motion.div
@@ -105,15 +109,27 @@ const Preloader = ({ onLoadingComplete }) => {
                             transition={{ duration: 2.5, delay: 2.2, ease: "easeOut" }}
                             className="relative group"
                         >
-                            <h1
+                            <motion.h1
                                 className="text-5xl md:text-[8rem] font-bold text-transparent bg-clip-text bg-gradient-to-b from-white via-violet-100 to-violet-400 relative z-10 drop-shadow-[0_0_30px_rgba(139,92,246,0.5)]"
                                 style={{
                                     fontFamily: '"Cinzel", serif',
                                     textTransform: 'uppercase'
                                 }}
+                                animate={{ scale: [1, 1.02, 1] }}
+                                transition={{ duration: 3, repeat: Infinity, delay: 4, ease: "easeInOut" }}
                             >
                                 Prajwalan
-                            </h1>
+                            </motion.h1>
+
+                            {/* Cute Orbiting Dot */}
+                            <motion.div
+                                className="absolute top-1/2 left-1/2 w-[120%] h-[200%] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1, rotate: 360 }}
+                                transition={{ opacity: { delay: 3, duration: 1 }, rotate: { duration: 8, repeat: Infinity, ease: "linear" } }}
+                            >
+                                <div className="absolute top-0 left-1/2 w-2 h-2 bg-cyan-400 rounded-full blur-[1px] shadow-[0_0_10px_#22d3ee]"></div>
+                            </motion.div>
 
                             {/* Inner Glow Aura */}
                             <motion.div

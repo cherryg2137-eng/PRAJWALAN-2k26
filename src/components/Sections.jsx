@@ -41,7 +41,7 @@ const itemVariants = {
 // --- Components ---
 
 const Section = ({ id, title, children, className = "", ...props }) => (
-    <section id={id} className={`min-h-screen py-24 relative z-10 flex flex-col justify-center ${className} bg-bg-dark`} {...props}>
+    <section id={id} className={`w-full py-8 relative z-10 flex flex-col justify-center ${className} bg-bg-dark`} {...props}>
         <div className="container mx-auto px-6">
             <motion.div
                 initial="hidden"
@@ -79,7 +79,7 @@ export const About = () => {
     return (
         <div
             id="about"
-            className="min-h-screen py-24 relative z-10 flex flex-col justify-center items-center bg-bg-dark overflow-hidden group/section"
+            className="w-full py-8 relative z-10 flex flex-col justify-center items-center bg-bg-dark overflow-hidden group/section"
             onMouseMove={handleMouseMove}
         >
             {/* Background Image with Floating Effect and 360 Rotation */}
@@ -134,18 +134,37 @@ export const About = () => {
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.1 }}
                     variants={sectionVariants}
-                    className="flex items-center justify-center mb-16"
+                    className="flex items-center justify-center mb-24 mt-12"
                 >
-                    <div className="flex items-center gap-4">
-                        <span className="text-4xl text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-400 font-orbitron font-bold drop-shadow-[0_0_10px_rgba(139,92,246,0.5)]">
-                            &lt;
-                        </span>
-                        <h2 className="text-4xl md:text-5xl font-black text-center text-transparent bg-clip-text bg-gradient-to-r from-white via-violet-200 to-gray-400 uppercase tracking-[0.2em] font-orbitron drop-shadow-[0_0_15px_rgba(139,92,246,0.5)]">
-                            ABOUT
-                        </h2>
-                        <span className="text-4xl text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-violet-400 font-orbitron font-bold drop-shadow-[0_0_10px_rgba(139,92,246,0.5)]">
-                            &gt;
-                        </span>
+                    <div className="flex items-center gap-2 md:gap-4">
+                        {/* Left Bracket */}
+                        <svg width="40" height="80" viewBox="0 0 40 100" className="w-6 h-12 md:w-8 md:h-16 fill-none stroke-violet-400/80 stroke-[16] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]">
+                            <path d="M35 5 L5 50 L35 95" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+
+                        <div className="relative overflow-hidden pl-4 pr-2 md:pl-6 md:pr-4 py-2 border-x-2 border-violet-400/80 bg-transparent rounded-xl">
+                            {/* Shine Effect */}
+                            <motion.div
+                                className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/30 to-transparent skew-x-12"
+                                initial={{ x: "-100%" }}
+                                animate={{ x: "200%" }}
+                                transition={{
+                                    repeat: Infinity,
+                                    duration: 3,
+                                    ease: "linear",
+                                    repeatDelay: 0
+                                }}
+                            />
+
+                            <h2 className="relative z-10 text-2xl md:text-4xl font-medium text-center text-transparent bg-clip-text bg-gradient-to-b from-white via-violet-200 to-violet-500 uppercase tracking-[0.1em] font-orbitron drop-shadow-[0_0_25px_rgba(139,92,246,0.5)]">
+                                ABOUT
+                            </h2>
+                        </div>
+
+                        {/* Right Bracket */}
+                        <svg width="40" height="80" viewBox="0 0 40 100" className="w-6 h-12 md:w-8 md:h-16 fill-none stroke-violet-400/80 stroke-[16] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]">
+                            <path d="M5 5 L35 50 L5 95" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
                     </div>
                 </motion.div>
 
@@ -333,7 +352,7 @@ export const Gallery = () => {
     ];
 
     return (
-        <section id="gallery" className="relative w-full min-h-screen bg-[#050505] flex flex-col items-center justify-center py-24 px-4 md:px-12">
+        <section id="gallery" className="relative w-full bg-[#050505] flex flex-col items-center justify-center pt-24 pb-32 px-4 md:px-12">
 
             {/* Header - FAQ Style Match */}
             <motion.div
@@ -486,33 +505,50 @@ export const PastWinners = () => {
     ];
 
     return (
-        <section id="past-winners" className="py-16 md:py-32 bg-[#05010d] relative overflow-hidden flex flex-col items-center">
+        <section id="past-winners" className="py-8 bg-[#05010d] relative overflow-hidden flex flex-col items-center">
             {/* Ambient Background Glows */}
             <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-violet-600/20 rounded-full blur-[120px] -z-0 pointer-events-none"></div>
             <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] -z-0 pointer-events-none"></div>
 
             {/* Header */}
-            <div className="flex flex-col items-center mb-24 relative z-10 w-full">
-                <motion.h2
-                    initial={{ opacity: 0, y: -20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-3xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 font-orbitron tracking-widest uppercase mb-4 drop-shadow-[0_0_20px_rgba(139,92,246,0.6)] text-center px-4"
-                >
-                    HALL OF LEGENDS
-                </motion.h2>
-                <div className="flex items-center gap-4">
-                    <div className="h-[2px] w-12 bg-violet-600/50"></div>
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        className="text-center text-violet-200/60 font-rajdhani text-xs md:text-sm tracking-[0.3em] uppercase max-w-2xl font-light px-2"
-                    >
-                        Honoring the visionaries who shaped the future.
-                    </motion.p>
-                    <div className="h-[2px] w-12 bg-violet-600/50"></div>
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.1 }}
+                variants={sectionVariants}
+                className="flex items-center justify-center mb-24 mt-12"
+            >
+                <div className="flex items-center gap-2 md:gap-4">
+                    {/* Left Bracket */}
+                    <svg width="40" height="80" viewBox="0 0 40 100" className="w-6 h-12 md:w-8 md:h-16 fill-none stroke-violet-400/80 stroke-[16] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]">
+                        <path d="M35 5 L5 50 L35 95" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+
+                    <div className="relative overflow-hidden pl-4 pr-2 md:pl-6 md:pr-4 py-2 border-x-2 border-violet-400/80 bg-transparent rounded-xl">
+                        {/* Shine Effect */}
+                        <motion.div
+                            className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/30 to-transparent skew-x-12"
+                            initial={{ x: "-100%" }}
+                            animate={{ x: "200%" }}
+                            transition={{
+                                repeat: Infinity,
+                                duration: 3,
+                                ease: "linear",
+                                repeatDelay: 0
+                            }}
+                        />
+
+                        <h2 className="relative z-10 text-2xl md:text-4xl font-medium text-center text-transparent bg-clip-text bg-gradient-to-b from-white via-violet-200 to-violet-500 uppercase tracking-[0.1em] font-orbitron drop-shadow-[0_0_25px_rgba(139,92,246,0.5)]">
+                            HALL OF LEGENDS
+                        </h2>
+                    </div>
+
+                    {/* Right Bracket */}
+                    <svg width="40" height="80" viewBox="0 0 40 100" className="w-6 h-12 md:w-8 md:h-16 fill-none stroke-violet-400/80 stroke-[16] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]">
+                        <path d="M5 5 L35 50 L5 95" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
                 </div>
-            </div>
+            </motion.div>
 
             {/* Ethereal Floating Grid */}
             <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 w-full min-h-[500px]">
@@ -538,7 +574,7 @@ export const PastWinners = () => {
                         >
                             {/* Glass Card */}
                             <div className={`
-                                    relative w-full md:w-[320px] 
+                                    relative w-[85vw] md:w-[320px] 
                                     ${winner.place === 1 ? 'h-[460px]' : 'h-[380px]'}
                                     rounded-[2.5rem] overflow-hidden backdrop-blur-3xl
                                     bg-gradient-to-b ${winner.gradient}
@@ -651,26 +687,48 @@ export const Timeline = () => {
     const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
     return (
-        <section id="timeline" ref={containerRef} className="py-32 relative z-10 overflow-hidden flex flex-col items-center bg-[#05010d]">
+        <section id="timeline" ref={containerRef} className="py-8 relative z-10 overflow-hidden flex flex-col items-center bg-[#05010d]">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-30"></div>
 
             {/* Header */}
-            <div className="flex flex-col items-center mb-32 relative z-10">
-                <motion.h2
-                    initial={{ opacity: 0, y: -20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-800 font-orbitron tracking-widest uppercase mb-4 drop-shadow-[0_0_20px_rgba(139,92,246,0.6)]"
-                >
-                    TIMELINE
-                </motion.h2>
-                <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: 160 }}
-                    transition={{ duration: 1, delay: 0.5 }}
-                    className="h-1.5 bg-violet-600 skew-x-[-20deg] shadow-[0_0_15px_#7c3aed]"
-                ></motion.div>
-            </div>
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.1 }}
+                variants={sectionVariants}
+                className="flex items-center justify-center mb-24 mt-12"
+            >
+                <div className="flex items-center gap-2 md:gap-4">
+                    {/* Left Bracket */}
+                    <svg width="40" height="80" viewBox="0 0 40 100" className="w-6 h-12 md:w-8 md:h-16 fill-none stroke-violet-400/80 stroke-[16] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]">
+                        <path d="M35 5 L5 50 L35 95" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+
+                    <div className="relative overflow-hidden pl-4 pr-2 md:pl-6 md:pr-4 py-2 border-x-2 border-violet-400/80 bg-transparent rounded-xl">
+                        {/* Shine Effect */}
+                        <motion.div
+                            className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/30 to-transparent skew-x-12"
+                            initial={{ x: "-100%" }}
+                            animate={{ x: "200%" }}
+                            transition={{
+                                repeat: Infinity,
+                                duration: 3,
+                                ease: "linear",
+                                repeatDelay: 0
+                            }}
+                        />
+
+                        <h2 className="relative z-10 text-2xl md:text-4xl font-medium text-center text-transparent bg-clip-text bg-gradient-to-b from-white via-violet-200 to-violet-500 uppercase tracking-[0.1em] font-orbitron drop-shadow-[0_0_25px_rgba(139,92,246,0.5)]">
+                            TIMELINE
+                        </h2>
+                    </div>
+
+                    {/* Right Bracket */}
+                    <svg width="40" height="80" viewBox="0 0 40 100" className="w-6 h-12 md:w-8 md:h-16 fill-none stroke-violet-400/80 stroke-[16] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]">
+                        <path d="M5 5 L35 50 L5 95" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                </div>
+            </motion.div>
 
             {/* Vertical Rhombus Stack Layout */}
             <div className="w-full max-w-5xl px-4 relative flex flex-col items-center gap-24">
@@ -706,11 +764,11 @@ export const Timeline = () => {
                             <div className="absolute inset-0 bg-violet-500 blur-2xl opacity-20 group-hover:opacity-60 transition-opacity duration-500"></div>
 
                             {/* Rhombus Container */}
-                            <div className="w-32 h-32 bg-black/80 backdrop-blur-sm border-2 border-violet-500 rotate-45 flex items-center justify-center shadow-[0_0_30px_rgba(139,92,246,0.2)] group-hover:border-white/50 transition-colors duration-300">
+                            <div className="w-24 h-24 bg-black/80 backdrop-blur-sm border-2 border-violet-500 rotate-45 flex items-center justify-center shadow-[0_0_30px_rgba(139,92,246,0.2)] group-hover:border-white/50 transition-colors duration-300">
                                 {/* Inner Content (Un-rotated) */}
                                 <div className="-rotate-45 text-center">
-                                    <span className="block text-3xl font-black text-white font-orbitron leading-none drop-shadow-md">{event.date}</span>
-                                    <span className="block text-sm font-bold text-violet-400 font-orbitron tracking-widest mt-1">{event.month}</span>
+                                    <span className="block text-2xl font-black text-white font-orbitron leading-none drop-shadow-md">{event.date}</span>
+                                    <span className="block text-xs font-bold text-violet-400 font-orbitron tracking-widest mt-1">{event.month}</span>
                                 </div>
                             </div>
                         </motion.div>
@@ -730,17 +788,17 @@ export const Timeline = () => {
                             transition={{ type: "spring", stiffness: 300 }}
                         >
                             <div
-                                className="group/card relative p-8 bg-white/5 border border-white/10 backdrop-blur-md transition-all duration-300 hover:bg-violet-900/20 hover:border-violet-400/50 clip-path-polygon w-full shadow-lg"
+                                className="group/card relative p-6 bg-white/5 border border-white/10 backdrop-blur-md transition-all duration-300 hover:bg-violet-900/20 hover:border-violet-400/50 clip-path-polygon w-full shadow-lg"
                                 style={{ clipPath: "polygon(0 0, 100% 0, 100% 85%, 90% 100%, 0 100%)" }}
                             >
-                                <h3 className="text-3xl font-black font-orbitron text-white mb-2 uppercase tracking-wider group-hover/card:text-violet-300 transition-colors">
+                                <h3 className="text-2xl font-black font-orbitron text-white mb-1 uppercase tracking-wider group-hover/card:text-violet-300 transition-colors">
                                     {event.title}
                                 </h3>
-                                <p className="text-violet-500 font-bold font-orbitron tracking-[0.2em] mb-6 uppercase text-sm">
+                                <p className="text-violet-500 font-bold font-orbitron tracking-[0.2em] mb-4 uppercase text-xs">
                                     {event.subtitle}
                                 </p>
 
-                                <ul className={`flex flex-col gap-2 text-gray-300 font-orbitron ${idx % 2 === 0 ? 'items-center md:items-start' : 'items-center md:items-end'}`}>
+                                <ul className={`flex flex-col gap-1 text-gray-300 font-orbitron text-sm ${idx % 2 === 0 ? 'items-center md:items-start' : 'items-center md:items-end'}`}>
                                     {event.details.map((detail, i) => (
                                         <li key={i} className="flex items-center gap-2">
                                             {idx % 2 !== 0 && <i className="bi bi-caret-left-fill text-violet-500 text-xs"></i>}
@@ -799,28 +857,50 @@ export const Prizes = () => {
     ];
 
     return (
-        <section id="prizes" className="py-16 md:py-32 bg-bg-dark relative overflow-hidden flex flex-col items-center">
+        <section id="prizes" className="py-8 bg-bg-dark relative overflow-hidden flex flex-col items-center">
 
             {/* Background Atmosphere */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.1),transparent_70%)] pointer-events-none"></div>
 
             {/* Header */}
-            <div className="flex flex-col items-center mb-24 relative z-10">
-                <motion.h2
-                    initial={{ opacity: 0, y: -20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-800 font-orbitron tracking-widest uppercase mb-4 drop-shadow-[0_0_20px_rgba(139,92,246,0.6)]"
-                >
-                    PRIZES
-                </motion.h2>
-                <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: 160 }}
-                    transition={{ duration: 1, delay: 0.5 }}
-                    className="h-1.5 bg-violet-600 skew-x-[-20deg] shadow-[0_0_15px_#7c3aed]"
-                ></motion.div>
-            </div>
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.1 }}
+                variants={sectionVariants}
+                className="flex items-center justify-center mb-24 mt-12"
+            >
+                <div className="flex items-center gap-2 md:gap-4">
+                    {/* Left Bracket */}
+                    <svg width="40" height="80" viewBox="0 0 40 100" className="w-6 h-12 md:w-8 md:h-16 fill-none stroke-violet-400/80 stroke-[16] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]">
+                        <path d="M35 5 L5 50 L35 95" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+
+                    <div className="relative overflow-hidden pl-4 pr-2 md:pl-6 md:pr-4 py-2 border-x-2 border-violet-400/80 bg-transparent rounded-xl">
+                        {/* Shine Effect */}
+                        <motion.div
+                            className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/30 to-transparent skew-x-12"
+                            initial={{ x: "-100%" }}
+                            animate={{ x: "200%" }}
+                            transition={{
+                                repeat: Infinity,
+                                duration: 3,
+                                ease: "linear",
+                                repeatDelay: 0
+                            }}
+                        />
+
+                        <h2 className="relative z-10 text-2xl md:text-4xl font-medium text-center text-transparent bg-clip-text bg-gradient-to-b from-white via-violet-200 to-violet-500 uppercase tracking-[0.1em] font-orbitron drop-shadow-[0_0_25px_rgba(139,92,246,0.5)]">
+                            PRIZES
+                        </h2>
+                    </div>
+
+                    {/* Right Bracket */}
+                    <svg width="40" height="80" viewBox="0 0 40 100" className="w-6 h-12 md:w-8 md:h-16 fill-none stroke-violet-400/80 stroke-[16] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]">
+                        <path d="M5 5 L35 50 L5 95" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                </div>
+            </motion.div>
 
             <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -886,7 +966,7 @@ export const Sponsors = () => {
         { name: "Google", url: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" },
         { name: "Microsoft", url: "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" },
         { name: "Amazon", url: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" },
-        { name: "GitHub", url: "https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg" }
+        { name: "Zomato", url: "https://upload.wikimedia.org/wikipedia/commons/b/bd/Zomato_Logo.svg" }
     ];
 
     // Row 2: Dev & Cloud
@@ -902,48 +982,61 @@ export const Sponsors = () => {
     const marqueeRow2 = [...row2Sponsors, ...row2Sponsors, ...row2Sponsors, ...row2Sponsors];
 
     return (
-        <Section id="sponsors" className="py-24 bg-black relative overflow-hidden" title="">
+        <Section id="sponsors" className="pt-8 pb-16 bg-black relative overflow-hidden" title="">
             {/* Header */}
-            <div className="flex items-center justify-center mb-16 relative z-10 w-full">
-                {/* Left Bracket */}
-                <div className="hidden md:flex items-center justify-center mr-8">
-                    <div className="w-4 h-12 bg-transparent border-l-4 border-t-4 border-b-4 border-violet-500 skew-x-[-15deg] shadow-[0_0_15px_rgba(139,92,246,0.5)]"></div>
-                    <div className="w-3 h-3 bg-violet-500 ml-2 rotate-45 shadow-[0_0_10px_rgba(139,92,246,0.5)]"></div>
-                </div>
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.1 }}
+                variants={sectionVariants}
+                className="flex items-center justify-center mb-16 relative z-10 w-full mt-12"
+            >
+                <div className="flex items-center gap-2 md:gap-4">
+                    {/* Left Bracket */}
+                    <svg width="40" height="80" viewBox="0 0 40 100" className="w-6 h-12 md:w-8 md:h-16 fill-none stroke-violet-400/80 stroke-[16] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]">
+                        <path d="M35 5 L5 50 L35 95" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
 
-                {/* Main Title Container */}
-                <div className="relative px-12 py-4 bg-gradient-to-r from-transparent via-violet-900/10 to-transparent border-y border-violet-500/30">
-                    <h2 className="text-4xl md:text-6xl font-black font-orbitron tracking-[0.1em] text-violet-400 uppercase drop-shadow-[0_0_15px_rgba(139,92,246,0.5)] whitespace-nowrap">
-                        SPONSORS
-                    </h2>
-                    {/* Glow lines */}
-                    <span className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-violet-500 to-transparent"></span>
-                    <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-violet-500 to-transparent"></span>
-                </div>
+                    <div className="relative overflow-hidden pl-4 pr-2 md:pl-6 md:pr-4 py-2 border-x-2 border-violet-400/80 bg-transparent rounded-xl">
+                        {/* Shine Effect */}
+                        <motion.div
+                            className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/30 to-transparent skew-x-12"
+                            initial={{ x: "-100%" }}
+                            animate={{ x: "200%" }}
+                            transition={{
+                                repeat: Infinity,
+                                duration: 3,
+                                ease: "linear",
+                                repeatDelay: 0
+                            }}
+                        />
 
-                {/* Right Bracket */}
-                <div className="hidden md:flex items-center justify-center ml-8">
-                    <div className="w-3 h-3 bg-violet-500 mr-2 rotate-45 shadow-[0_0_10px_rgba(139,92,246,0.5)]"></div>
-                    <div className="w-4 h-12 bg-transparent border-r-4 border-t-4 border-b-4 border-violet-500 skew-x-[15deg] shadow-[0_0_15px_rgba(139,92,246,0.5)]"></div>
+                        <h2 className="relative z-10 text-2xl md:text-4xl font-medium text-center text-transparent bg-clip-text bg-gradient-to-b from-white via-violet-200 to-violet-500 uppercase tracking-[0.1em] font-orbitron drop-shadow-[0_0_25px_rgba(139,92,246,0.5)]">
+                            SPONSORS
+                        </h2>
+                    </div>
+
+                    {/* Right Bracket */}
+                    <svg width="40" height="80" viewBox="0 0 40 100" className="w-6 h-12 md:w-8 md:h-16 fill-none stroke-violet-400/80 stroke-[16] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]">
+                        <path d="M5 5 L35 50 L5 95" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
                 </div>
-            </div>
+            </motion.div>
 
             {/* Marquee Container */}
             <div className="flex flex-col gap-16 relative z-10 overflow-hidden opacity-90 hover:opacity-100 transition-opacity duration-500 group">
 
                 {/* Row 1: Left to Right */}
-                <div className="flex overflow-hidden relative w-full">
+                <div className="flex overflow-visible relative w-full py-4">
                     <div className="flex gap-20 items-center whitespace-nowrap animate-marquee-reverse group-hover:paused will-change-transform">
                         {marqueeRow1.map((brand, idx) => (
                             <div key={`row1-${idx}`} className="w-28 md:w-40 flex-shrink-0 flex items-center justify-center">
                                 <img
                                     src={brand.url}
                                     alt={brand.name}
-                                    className="w-full h-12 object-contain"
+                                    className="w-full h-12 object-contain transition-transform duration-300 hover:scale-125 drop-shadow-[0_0_5px_rgba(139,92,246,0.3)] hover:drop-shadow-[0_0_15px_rgba(139,92,246,0.8)]"
                                     style={{
-                                        filter: brand.name === "GitHub"
-                                            ? "brightness(2.5) sepia(1) hue-rotate(240deg) saturate(2) contrast(1.1) drop-shadow(0 0 8px rgba(139, 92, 246, 0.5))"
-                                            : "brightness(0.9) sepia(1) hue-rotate(240deg) saturate(3) contrast(1.1) drop-shadow(0 0 5px rgba(139, 92, 246, 0.3))"
+                                        filter: "brightness(0.9) sepia(1) hue-rotate(240deg) saturate(3) contrast(1.1)"
                                     }}
                                 />
                             </div>
@@ -952,16 +1045,16 @@ export const Sponsors = () => {
                 </div>
 
                 {/* Row 2: Right to Left */}
-                <div className="flex overflow-hidden relative w-full">
+                <div className="flex overflow-visible relative w-full py-4">
                     <div className="flex gap-20 items-center whitespace-nowrap animate-marquee group-hover:paused will-change-transform">
                         {marqueeRow2.map((brand, idx) => (
                             <div key={`row2-${idx}`} className="w-28 md:w-40 flex-shrink-0 flex items-center justify-center">
                                 <img
                                     src={brand.url}
                                     alt={brand.name}
-                                    className="w-full h-12 object-contain"
+                                    className="w-full h-12 object-contain transition-transform duration-300 hover:scale-125 drop-shadow-[0_0_5px_rgba(139,92,246,0.3)] hover:drop-shadow-[0_0_15px_rgba(139,92,246,0.8)]"
                                     style={{
-                                        filter: "brightness(0.9) sepia(1) hue-rotate(240deg) saturate(3) contrast(1.1) drop-shadow(0 0 5px rgba(139, 92, 246, 0.3))"
+                                        filter: "brightness(0.9) sepia(1) hue-rotate(240deg) saturate(3) contrast(1.1)"
                                     }}
                                 />
                             </div>
@@ -1016,7 +1109,7 @@ export const FAQs = () => {
     return (
         <section
             id="faqs"
-            className="min-h-screen flex flex-col justify-start pt-32 bg-bg-dark relative overflow-hidden"
+            className="w-full flex flex-col justify-start pt-32 pb-32 bg-bg-dark relative overflow-hidden"
             onMouseMove={handleMouseMove}
         >
             {/* Parallax Background */}
@@ -1105,6 +1198,10 @@ export const Modules = () => {
     const bgX = useTransform(xSpring, [-0.5, 0.5], ["-40px", "40px"]);
     const bgY = useTransform(ySpring, [-0.5, 0.5], ["-40px", "40px"]);
 
+    // Map input to 3D rotation
+    const rotateY = useTransform(xSpring, [-0.5, 0.5], ["-15deg", "15deg"]);
+    const rotateX = useTransform(ySpring, [-0.5, 0.5], ["15deg", "-15deg"]);
+
     const handleMouseMove = (e) => {
         const { clientX, clientY, currentTarget } = e;
         const { width, height } = currentTarget.getBoundingClientRect();
@@ -1141,8 +1238,7 @@ export const Modules = () => {
         {
             id: 1,
             title: "Web Development",
-            desc: "Building the digital future of the web.",
-            points: ["Full Stack Solutions", "Modern Frameworks"],
+            desc: "Challenge yourself to build scalable, responsive, and user-centric web applications that solve real-world problems. Utilize modern frameworks and cloud technologies to create seamless digital experiences that define the future of the internet.",
             top: "calc(15% - 20px)",
             left: "calc(20% + 140px)",
             delay: 0,
@@ -1152,8 +1248,7 @@ export const Modules = () => {
         {
             id: 2,
             title: "Cyber Security",
-            desc: "Defending systems from digital threats.",
-            points: ["Network Defense", "Ethical Hacking"],
+            desc: "Dive into the world of network defense, ethical hacking, and vulnerability assessment to secure critical digital infrastructure. Develop robust solutions that protect user data, prevent cyber threats, and ensure privacy in an increasingly connected world.",
             top: "calc(25% + 140px)",
             left: "calc(65% - 65px)",
             delay: 2,
@@ -1163,8 +1258,7 @@ export const Modules = () => {
         {
             id: 3,
             title: "Machine Learning",
-            desc: "Systems that learn and adapt from data.",
-            points: ["Predictive Modeling", "Neural Architectures"],
+            desc: "Harness the power of data to build intelligent systems capable of predictive modeling, natural language processing, and computer vision. Create algorithms that learn from experience, automate complex tasks, and uncover hidden patterns to drive innovation.",
             top: "calc(28% + 340px)",
             left: "calc(42% - 70px)",
             delay: 4,
@@ -1174,8 +1268,7 @@ export const Modules = () => {
         {
             id: 4,
             title: "IoT Systems",
-            desc: "Connecting the physical and digital worlds.",
-            points: ["Smart Devices", "Embedded Systems"],
+            desc: "Bridge the gap between the physical and digital worlds by creating smart, interconnected devices and systems. Design efficient embedded solutions that collect data, automate processes, and improve quality of life through intelligent automation and connectivity.",
             top: "calc(70% - 180px)",
             left: "calc(12% - 170px)",
             delay: 1,
@@ -1184,8 +1277,7 @@ export const Modules = () => {
         {
             id: 5,
             title: "Web3 & Blockchain",
-            desc: "Decentralized trust and value exchange.",
-            points: ["Smart Contracts", "DApp Development"],
+            desc: "Explore the frontiers of decentralized technology by building transparent, secure, and immutable applications. Develop smart contracts and decentralized apps (DApps) that redefine trust, finance, and digital ownership in the next generation of the web.",
             top: "calc(80% - 450px)",
             left: "calc(48% + 500px)",
             delay: 3,
@@ -1195,8 +1287,7 @@ export const Modules = () => {
         {
             id: 6,
             title: "App Development",
-            desc: "Creating mobile experiences for everyone.",
-            points: ["Cross-platform Apps", "User Centric UI/UX"],
+            desc: "Craft intuitive and high-performance mobile applications that deliver exceptional user experiences across various platforms. Focus on mobile-first design, efficient functionality, and seamless integration to solve problems on the go.",
             top: "calc(55% + 108px)",
             left: "calc(82% + 55px)",
             delay: 5,
@@ -1209,12 +1300,12 @@ export const Modules = () => {
         <Section
             id="modules"
             title=""
-            className="bg-[#050210] relative overflow-hidden py-32 min-h-[900px]"
+            className="bg-[#050210] relative overflow-hidden py-8 min-h-[900px]"
             onMouseMove={handleMouseMove}
         >
 
             {/* Background Image - New Final V2 - Shifted down for Header Space */}
-            <div className="absolute top-[220px] left-0 right-0 bottom-0 z-0 overflow-hidden">
+            <div className="absolute top-[220px] left-0 right-0 bottom-0 z-0 overflow-hidden" style={{ perspective: "1000px" }}>
                 <motion.div
                     className="absolute inset-x-0 inset-y-0 w-full h-full bg-cover bg-center"
                     style={{
@@ -1222,7 +1313,9 @@ export const Modules = () => {
                         backgroundPosition: 'center -50px',
                         x: bgX,
                         y: bgY,
-                        scale: 1.1
+                        rotateX: rotateX,
+                        rotateY: rotateY,
+                        scale: 1.15 // Slightly Increased scale to avoid edge clipping during rotation
                     }}
                 />
                 {/* Minimal Overlay */}
@@ -1243,18 +1336,38 @@ export const Modules = () => {
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.1 }}
                     variants={sectionVariants}
-                    className="flex flex-col items-center justify-center mb-24 relative"
+                    className="flex items-center justify-center mb-24 mt-12"
                 >
-                    <h2 className="text-4xl md:text-6xl font-black font-orbitron tracking-[0.1em] text-transparent bg-clip-text bg-gradient-to-b from-white to-purple-400 drop-shadow-[0_0_20px_rgba(168,85,247,0.5)] z-10">
-                        DOMAINS
-                    </h2>
-                    {/* Animated Underline */}
-                    <motion.div
-                        className="h-1 bg-cyan-400 mt-4 rounded-full shadow-[0_0_15px_#22d3ee]"
-                        initial={{ width: 0, opacity: 0 }}
-                        whileInView={{ width: 100, opacity: 1 }}
-                        transition={{ duration: 1, delay: 0.5 }}
-                    />
+                    <div className="flex items-center gap-2 md:gap-4">
+                        {/* Left Bracket */}
+                        <svg width="40" height="80" viewBox="0 0 40 100" className="w-6 h-12 md:w-8 md:h-16 fill-none stroke-violet-400/80 stroke-[16] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]">
+                            <path d="M35 5 L5 50 L35 95" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+
+                        <div className="relative overflow-hidden pl-4 pr-2 md:pl-6 md:pr-4 py-2 border-x-2 border-violet-400/80 bg-transparent rounded-xl">
+                            {/* Shine Effect */}
+                            <motion.div
+                                className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/30 to-transparent skew-x-12"
+                                initial={{ x: "-100%" }}
+                                animate={{ x: "200%" }}
+                                transition={{
+                                    repeat: Infinity,
+                                    duration: 3,
+                                    ease: "linear",
+                                    repeatDelay: 0
+                                }}
+                            />
+
+                            <h2 className="relative z-10 text-2xl md:text-4xl font-medium text-center text-transparent bg-clip-text bg-gradient-to-b from-white via-violet-200 to-violet-500 uppercase tracking-[0.1em] font-orbitron drop-shadow-[0_0_25px_rgba(139,92,246,0.5)]">
+                                DOMAINS
+                            </h2>
+                        </div>
+
+                        {/* Right Bracket */}
+                        <svg width="40" height="80" viewBox="0 0 40 100" className="w-6 h-12 md:w-8 md:h-16 fill-none stroke-violet-400/80 stroke-[16] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]">
+                            <path d="M5 5 L35 50 L5 95" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                    </div>
                 </motion.div>
 
                 {/* Organic Dotted Map (Desktop Only) */}
@@ -1328,16 +1441,9 @@ export const Modules = () => {
                                             <h3 className="text-lg font-bold font-orbitron text-amber-400 mb-2 tracking-wide">
                                                 {mod.title}
                                             </h3>
-                                            {/* Description */}
-                                            <p className="text-xs text-gray-400 font-rajdhani leading-relaxed mb-3">
+                                            <p className="text-xs text-violet-300 font-sans leading-relaxed mb-3 text-left tracking-wide">
                                                 {mod.desc}
                                             </p>
-                                            {/* Bullet Points */}
-                                            <ul className="list-disc list-inside text-[10px] text-gray-500 font-rajdhani space-y-1">
-                                                {mod.points && mod.points.map((point, i) => (
-                                                    <li key={i}>{point}</li>
-                                                ))}
-                                            </ul>
                                         </div>
                                     </div>
 
@@ -1388,17 +1494,9 @@ export const Modules = () => {
                                     <h3 className="text-xl font-bold font-orbitron text-amber-400 mb-2 tracking-wide">
                                         {mod.title}
                                     </h3>
-                                    <p className="text-sm text-gray-400 font-rajdhani leading-relaxed mb-4">
+                                    <p className="text-sm text-violet-300 font-sans leading-relaxed mb-4 text-justify tracking-wide">
                                         {mod.desc}
                                     </p>
-
-                                    <ul className="flex flex-wrap gap-2">
-                                        {mod.points && mod.points.map((point, i) => (
-                                            <li key={i} className="text-[10px] uppercase font-bold tracking-wider text-violet-300 bg-violet-900/30 px-2 py-1 rounded">
-                                                {point}
-                                            </li>
-                                        ))}
-                                    </ul>
                                 </div>
                             </div>
                         </motion.div>

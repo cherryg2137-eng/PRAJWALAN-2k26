@@ -3,9 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Background from './components/Background';
 import Navbar from './components/Navbar';
 import Preloader from './components/Preloader';
+import Team from './components/Team';
 import Hero from './components/Hero';
 import Footer from './components/Footer';
 import { About, Domains, Gallery, Timeline, Modules, PastWinners, Prizes, Sponsors, FAQs } from './components/Sections';
+import AceBody from './components/AceBody';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -37,6 +39,7 @@ function App() {
                 <PastWinners />
                 <Prizes />
                 <Sponsors />
+                <AceBody />
               </>
             )}
 
@@ -46,6 +49,10 @@ function App() {
 
             {view === 'faq' && (
               <FAQs />
+            )}
+
+            {view === 'team' && (
+              <Team />
             )}
           </main>
 

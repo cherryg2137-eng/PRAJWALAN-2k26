@@ -15,6 +15,10 @@ const Hero = ({ introPlayed, setIntroPlayed }) => {
     const translateX = useTransform(xSpring, [-0.5, 0.5], ["40px", "-40px"]);
     const translateY = useTransform(ySpring, [-0.5, 0.5], ["40px", "-40px"]);
 
+    // 3D Rotation from Mouse Move
+    const rotateY = useTransform(xSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
+    const rotateX = useTransform(ySpring, [-0.5, 0.5], ["10deg", "-10deg"]);
+
     const handleMouseMove = (e) => {
         const { clientX, clientY, currentTarget } = e;
         const { width, height } = currentTarget.getBoundingClientRect();
@@ -64,15 +68,17 @@ const Hero = ({ introPlayed, setIntroPlayed }) => {
             */}
 
             {/* Background Image (Parallax) - Always present underneath */}
-            <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 z-0" style={{ perspective: "1000px" }}>
                 <motion.img
-                    src="https://res.cloudinary.com/dve78jcz0/image/upload/v1767216295/unnamed_debyfk.jpg"
+                    src="https://res.cloudinary.com/dtvplbrns/image/upload/v1767300916/ChatGPT_Image_Jan_2_2026_02_23_33_AM_hotsz5.png"
                     alt="Hero Background"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full"
                     style={{
                         x: translateX,
                         y: translateY,
-                        scale: 1.1 // Reduced scale
+                        rotateX,
+                        rotateY,
+                        scale: 1.15 // Slightly increased scale for 3D
                     }}
                 />
                 <div className="absolute inset-0 bg-black/30 mix-blend-multiply"></div>
@@ -170,15 +176,7 @@ const Hero = ({ introPlayed, setIntroPlayed }) => {
             </div>
 
             {/* Scroll Indicator */}
-            <motion.div
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 2, duration: 1 }}
-            >
-                <span className="text-xs uppercase tracking-[0.2em] text-violet-300/70">Scroll Down</span>
-                <div className="w-[1px] h-12 bg-gradient-to-b from-violet-500 to-transparent"></div>
-            </motion.div>
+
         </section>
     );
 };
