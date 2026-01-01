@@ -497,7 +497,7 @@ export const PastWinners = () => {
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 font-orbitron tracking-widest uppercase mb-4 drop-shadow-[0_0_20px_rgba(139,92,246,0.6)]"
+                    className="text-3xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 font-orbitron tracking-widest uppercase mb-4 drop-shadow-[0_0_20px_rgba(139,92,246,0.6)] text-center px-4"
                 >
                     HALL OF LEGENDS
                 </motion.h2>
@@ -506,7 +506,7 @@ export const PastWinners = () => {
                     <motion.p
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
-                        className="text-center text-violet-200/60 font-rajdhani text-sm tracking-[0.3em] uppercase max-w-2xl font-light"
+                        className="text-center text-violet-200/60 font-rajdhani text-xs md:text-sm tracking-[0.3em] uppercase max-w-2xl font-light px-2"
                     >
                         Honoring the visionaries who shaped the future.
                     </motion.p>
