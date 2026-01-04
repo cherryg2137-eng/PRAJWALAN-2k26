@@ -467,7 +467,7 @@ export const Gallery = () => {
 
 export const PastWinners = () => {
     // Data for winners
-    const winners = [
+    const winners2k25 = [
         {
             place: 2,
             title: "Trendsetters",
@@ -475,9 +475,7 @@ export const PastWinners = () => {
             img: imgAppDev,
             gradient: "from-cyan-500/20 to-blue-600/5",
             border: "border-cyan-500/30",
-            glow: "shadow-[0_0_40px_-10px_rgba(34,211,238,0.3)]",
-            text: "text-cyan-200",
-            delay: 0.2
+            text: "text-cyan-200"
         },
         {
             place: 1,
@@ -486,10 +484,7 @@ export const PastWinners = () => {
             img: imgML,
             gradient: "from-amber-500/20 to-orange-600/5",
             border: "border-amber-500/40",
-            glow: "shadow-[0_0_60px_-10px_rgba(245,158,11,0.4)]",
-            text: "text-amber-200",
-            delay: 0,
-            scale: 1.1
+            text: "text-amber-200"
         },
         {
             place: 3,
@@ -498,17 +493,80 @@ export const PastWinners = () => {
             img: imgIoT,
             gradient: "from-rose-500/20 to-pink-600/5",
             border: "border-rose-500/30",
-            glow: "shadow-[0_0_40px_-10px_rgba(244,63,94,0.3)]",
-            text: "text-rose-200",
-            delay: 0.4
+            text: "text-rose-200"
         }
     ];
 
+    const winners2k24 = [
+        {
+            place: 2,
+            title: "Code Crafters",
+            prize: "Silver",
+            img: imgWebDev,
+            gradient: "from-cyan-500/20 to-blue-600/5",
+            border: "border-cyan-500/30",
+            text: "text-cyan-200"
+        },
+        {
+            place: 1,
+            title: "Pixel Perfect",
+            prize: "Gold",
+            img: imgCyberSec,
+            gradient: "from-amber-500/20 to-orange-600/5",
+            border: "border-amber-500/40",
+            text: "text-amber-200"
+        },
+        {
+            place: 3,
+            title: "Logic Lords",
+            prize: "Bronze",
+            img: imgWeb3,
+            gradient: "from-rose-500/20 to-pink-600/5",
+            border: "border-rose-500/30",
+            text: "text-rose-200"
+        }
+    ];
+
+    const WinnerCard = ({ winner, index }) => (
+        <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.15, duration: 0.6, ease: "easeOut" }}
+            className={`relative rounded-2xl p-[1px] bg-gradient-to-b from-white/10 to-transparent hover:from-violet-500/50 hover:to-violet-900/50 transition-all duration-300 w-full max-w-lg group`}
+        >
+            <div className={`relative h-[320px] w-full bg-[#111] rounded-2xl overflow-hidden flex flex-col border border-white/5 shadow-xl`}>
+
+                {/* Image Section (Top 70%) */}
+                <div className="relative h-[70%] w-full overflow-hidden">
+                    <img
+                        src={winner.img}
+                        alt={winner.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-[0.9] group-hover:brightness-100"
+                    />
+
+                    {/* Gradient Overlay for Text Visibility */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-80"></div>
+                </div>
+
+                {/* Content Section (Bottom 30%) */}
+                <div className="relative h-[30%] flex flex-col items-center justify-center px-6 bg-[#0a0a0a] z-10 group-hover:bg-[#111] transition-colors duration-300">
+                    {/* Glow Line Top */}
+                    <div className={`absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r ${winner.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+
+                    <h4 className="text-xl md:text-2xl font-bold font-orbitron text-white tracking-wide mb-1 text-center group-hover:text-violet-200 transition-colors truncate w-full">
+                        {winner.title}
+                    </h4>
+                </div>
+            </div>
+        </motion.div>
+    );
+
     return (
-        <section id="past-winners" className="py-8 bg-[#05010d] relative overflow-hidden flex flex-col items-center">
-            {/* Ambient Background Glows */}
-            <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-violet-600/20 rounded-full blur-[120px] -z-0 pointer-events-none"></div>
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] -z-0 pointer-events-none"></div>
+        <section id="past-winners" className="py-20 bg-[#05010d] relative overflow-hidden flex flex-col items-center">
+            {/* Background Ambience */}
+            <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-violet-600/10 rounded-full blur-[120px] -z-0 pointer-events-none"></div>
+            <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] -z-0 pointer-events-none"></div>
 
             {/* Header */}
             <motion.div
@@ -516,16 +574,14 @@ export const PastWinners = () => {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.1 }}
                 variants={sectionVariants}
-                className="flex items-center justify-center mb-24 mt-12"
+                className="flex items-center justify-center mb-16 relative z-10 w-full"
             >
                 <div className="flex items-center gap-2 md:gap-4">
-                    {/* Left Bracket */}
                     <svg width="40" height="80" viewBox="0 0 40 100" className="w-6 h-12 md:w-8 md:h-16 fill-none stroke-violet-400/80 stroke-[16] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]">
                         <path d="M35 5 L5 50 L35 95" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
 
                     <div className="relative overflow-hidden pl-4 pr-2 md:pl-6 md:pr-4 py-2 border-x-2 border-violet-400/80 bg-transparent rounded-xl">
-                        {/* Shine Effect */}
                         <motion.div
                             className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/30 to-transparent skew-x-12"
                             initial={{ x: "-100%" }}
@@ -538,103 +594,57 @@ export const PastWinners = () => {
                             }}
                         />
 
-                        <h2 className="relative z-10 text-2xl md:text-4xl font-medium text-center text-transparent bg-clip-text bg-gradient-to-b from-white via-violet-200 to-violet-500 uppercase tracking-[0.1em] font-orbitron drop-shadow-[0_0_25px_rgba(139,92,246,0.5)]">
+                        <h2 className="relative z-10 text-2xl md:text-5xl font-medium text-center text-transparent bg-clip-text bg-gradient-to-b from-white via-violet-200 to-violet-500 uppercase tracking-[0.1em] font-orbitron drop-shadow-[0_0_25px_rgba(139,92,246,0.5)]">
                             HALL OF LEGENDS
                         </h2>
                     </div>
 
-                    {/* Right Bracket */}
                     <svg width="40" height="80" viewBox="0 0 40 100" className="w-6 h-12 md:w-8 md:h-16 fill-none stroke-violet-400/80 stroke-[16] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]">
                         <path d="M5 5 L35 50 L5 95" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </div>
             </motion.div>
 
-            {/* Ethereal Floating Grid */}
-            <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 w-full min-h-[500px]">
-                {winners.map((winner, idx) => (
-                    <motion.div
-                        key={idx}
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: winner.delay, duration: 0.8, ease: "easeOut" }}
-                        className={`relative group ${winner.place === 1 ? 'md:-mt-12 z-20' : 'z-10'}`}
-                    >
-                        {/* Floating Animation Wrapper */}
-                        <motion.div
-                            animate={{ y: [0, -15, 0] }}
-                            transition={{
-                                duration: 4 + idx,
-                                repeat: Infinity,
-                                ease: "easeInOut",
-                                delay: idx * 0.5
-                            }}
-                            className="relative"
-                        >
-                            {/* Glass Card */}
-                            <div className={`
-                                    relative w-[85vw] md:w-[320px] 
-                                    ${winner.place === 1 ? 'h-[460px]' : 'h-[380px]'}
-                                    rounded-[2.5rem] overflow-hidden backdrop-blur-3xl
-                                    bg-gradient-to-b ${winner.gradient}
-                                    border ${winner.border}
-                                    ${winner.glow}
-                                    transition-all duration-500 group-hover:shadow-[0_0_80px_-20px_rgba(255,255,255,0.2)]
-                                `}>
-                                {/* Noise Texture Overlay */}
-                                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light"></div>
+            {/* 2K25 Winners Section */}
+            <div className="container mx-auto px-6 mb-24">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-center mb-12"
+                >
+                    <h3 className="text-3xl font-orbitron font-bold text-white tracking-widest inline-block border-b-2 border-violet-500/50 pb-2 drop-shadow-[0_0_10px_rgba(139,92,246,0.5)]">
+                        2K25 WINNERS
+                    </h3>
+                </motion.div>
 
-                                {/* Inner Light Reflection */}
-                                <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
-                                <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+                    {/* Render order: 2nd, 1st, 3rd to resemble a podium if 3 items, or just grid */}
+                    {/* Mapping simply for now, sticking to logic */}
+                    <WinnerCard winner={winners2k25[1]} index={0} /> {/* Gold */}
+                    <WinnerCard winner={winners2k25[0]} index={1} /> {/* Silver */}
+                    <WinnerCard winner={winners2k25[2]} index={2} /> {/* Bronze */}
+                </div>
+            </div>
 
-                                {/* Content Container */}
-                                <div className="absolute inset-0 flex flex-col items-center p-8">
+            {/* 2K24 Legends Section */}
+            <div className="container mx-auto px-6">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-center mb-12"
+                >
+                    <h3 className="text-3xl font-orbitron font-bold text-gray-300 tracking-widest inline-block border-b-2 border-white/20 pb-2">
+                        2K24 LEGENDS
+                    </h3>
+                </motion.div>
 
-                                    {/* Rank Badge (Floating) */}
-                                    <div className="absolute top-6 right-6">
-                                        <div className={`w-10 h-10 rounded-full flex items-center justify-center border border-white/10 bg-white/5 backdrop-blur-md shadow-inner`}>
-                                            <span className={`font-orbitron font-bold text-sm ${winner.text}`}>#{winner.place}</span>
-                                        </div>
-                                    </div>
-
-                                    {/* Avatar with Ring */}
-                                    <div className="relative mt-8 mb-6 group-hover:scale-105 transition-transform duration-700 ease-out">
-                                        {/* Rotating Ring */}
-                                        <div className={`absolute -inset-4 rounded-full border border-white/5 border-t-${winner.text.split('-')[1]}-400/50 animate-[spin_10s_linear_infinite]`}></div>
-                                        <div className={`absolute -inset-1 rounded-full bg-gradient-to-tr ${winner.gradient} blur-md opacity-40`}></div>
-                                        <img
-                                            src={winner.img}
-                                            alt={winner.title}
-                                            className="w-32 h-32 rounded-full object-cover relative z-10 border-2 border-white/10 shadow-2xl"
-                                        />
-                                    </div>
-
-                                    {/* Text Content */}
-                                    <div className="text-center mt-auto mb-8 relative z-10">
-                                        <h4 className="text-3xl font-bold text-white font-orbitron mb-2 tracking-wide drop-shadow-lg">
-                                            {winner.title}
-                                        </h4>
-                                        <div className="flex items-center justify-center gap-2 mb-4">
-                                            <span className={`h-px w-6 bg-current opacity-50 ${winner.text}`}></span>
-                                            <span className={`font-rajdhani uppercase tracking-[0.2em] text-sm font-semibold ${winner.text}`}>
-                                                {winner.prize}
-                                            </span>
-                                            <span className={`h-px w-6 bg-current opacity-50 ${winner.text}`}></span>
-                                        </div>
-                                        <p className="text-white/40 font-rajdhani text-xs tracking-wider">
-                                            PROJECT: {winner.place === 1 ? 'SENTINEL AI' : winner.place === 2 ? 'NOVA FINANCE' : 'ECHO HEALTH'}
-                                        </p>
-                                    </div>
-                                </div>
-
-                                {/* Hover Interactive Layer */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                            </div>
-                        </motion.div>
-                    </motion.div>
-                ))}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+                    <WinnerCard winner={winners2k24[1]} index={0} /> {/* Gold */}
+                    <WinnerCard winner={winners2k24[0]} index={1} /> {/* Silver */}
+                    <WinnerCard winner={winners2k24[2]} index={2} /> {/* Bronze */}
+                </div>
             </div>
 
         </section >
@@ -826,8 +836,9 @@ export const Prizes = () => {
             amount: '15,000',
             currency: 'INR',
             color: 'text-cyan-400',
-            bg: 'bg-cyan-500/10',
-            border: 'border-cyan-500/20',
+            bg: 'from-cyan-500/20 to-blue-500/5',
+            border: 'border-cyan-500/40',
+            glow: 'shadow-[0_0_30px_-5px_rgba(34,211,238,0.3)]',
             icon: "bi-shield-check",
             desc: "Outstanding execution and technical prowess."
         },
@@ -837,9 +848,10 @@ export const Prizes = () => {
             amount: '20,000',
             currency: 'INR',
             color: 'text-amber-400',
-            bg: 'bg-amber-500/10',
-            border: 'border-amber-500/30',
-            icon: "bi-trophy",
+            bg: 'from-amber-500/20 to-orange-600/5',
+            border: 'border-amber-500/50',
+            glow: 'shadow-[0_0_50px_-5px_rgba(245,158,11,0.5)]',
+            icon: "bi-trophy-fill",
             desc: "The ultimate innovation that redefines boundaries.",
             featured: true
         },
@@ -849,18 +861,20 @@ export const Prizes = () => {
             amount: '10,000',
             currency: 'INR',
             color: 'text-rose-400',
-            bg: 'bg-rose-500/10',
-            border: 'border-rose-500/20',
+            bg: 'from-rose-500/20 to-pink-500/5',
+            border: 'border-rose-500/40',
+            glow: 'shadow-[0_0_30px_-5px_rgba(251,113,133,0.3)]',
             icon: "bi-award",
             desc: "Exceptional creativity and problem solving."
         }
     ];
 
     return (
-        <section id="prizes" className="py-8 bg-bg-dark relative overflow-hidden flex flex-col items-center">
+        <section id="prizes" className="py-24 bg-bg-dark relative overflow-hidden flex flex-col items-center">
 
             {/* Background Atmosphere */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.1),transparent_70%)] pointer-events-none"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.05),transparent_70%)] pointer-events-none"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-violet-900/10 blur-[100px] rounded-full pointer-events-none"></div>
 
             {/* Header */}
             <motion.div
@@ -868,7 +882,7 @@ export const Prizes = () => {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.1 }}
                 variants={sectionVariants}
-                className="flex items-center justify-center mb-24 mt-12"
+                className="flex items-center justify-center mb-24 relative z-10"
             >
                 <div className="flex items-center gap-2 md:gap-4">
                     {/* Left Bracket */}
@@ -890,7 +904,7 @@ export const Prizes = () => {
                             }}
                         />
 
-                        <h2 className="relative z-10 text-2xl md:text-4xl font-medium text-center text-transparent bg-clip-text bg-gradient-to-b from-white via-violet-200 to-violet-500 uppercase tracking-[0.1em] font-orbitron drop-shadow-[0_0_25px_rgba(139,92,246,0.5)]">
+                        <h2 className="relative z-10 text-2xl md:text-5xl font-medium text-center text-transparent bg-clip-text bg-gradient-to-b from-white via-violet-200 to-violet-500 uppercase tracking-[0.1em] font-orbitron drop-shadow-[0_0_25px_rgba(139,92,246,0.5)]">
                             PRIZES
                         </h2>
                     </div>
@@ -902,58 +916,89 @@ export const Prizes = () => {
                 </div>
             </motion.div>
 
-            <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {bounties.map((bounty, idx) => (
-                        <motion.div
-                            key={idx}
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: idx * 0.1, duration: 0.5 }}
-                            whileHover={{ y: -10 }}
+            {/* Podium Grid */}
+            <div className="max-w-7xl mx-auto px-6 relative z-10 w-full flex flex-col md:flex-row items-center md:items-end justify-center gap-8 md:gap-6 min-h-[500px]">
+                {bounties.map((bounty, idx) => (
+                    <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: idx * 0.2, duration: 0.6, ease: "easeOut" }}
+                        className={`
+                            relative group w-full md:w-1/3 flex flex-col
+                            ${bounty.featured ? 'md:mb-12 z-20 order-first md:order-none' : 'z-10'}
+                        `}
+                    >
+                        {/* The Card */}
+                        <div
                             className={`
-                                relative group p-px overflow-hidden clip-path-polygon
-                                ${bounty.featured ? 'md:-mt-8 md:mb-8 z-20' : 'z-10'}
+                                relative overflow-hidden backdrop-blur-2xl transition-all duration-500
+                                bg-gradient-to-b ${bounty.bg}
+                                border ${bounty.border}
+                                ${bounty.glow}
+                                ${bounty.featured ? 'h-[420px] md:h-[500px]' : 'h-[350px] md:h-[400px]'}
+                                rounded-tl-[3rem] rounded-br-[3rem] rounded-tr-lg rounded-bl-lg
+                                hover:scale-[1.02] hover:-translate-y-2
                             `}
-                            style={{ clipPath: "polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)" }}
                         >
-                            {/* Animated Gradient Border using CSS mask or internal divs */}
-                            <div className={`absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-50`}></div>
-                            <div className={`absolute inset-0 bg-gradient-to-b ${bounty.bg} opacity-20 group-hover:opacity-40 transition-opacity duration-500`}></div>
+                            {/* Inner Noise Texture */}
+                            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light"></div>
 
-                            {/* Glass Content */}
-                            <div className="relative bg-[#0F0A1F]/90 backdrop-blur-xl h-full p-8 flex flex-col items-center text-center border border-white/5 group-hover:border-white/10 transition-colors clip-path-polygon" style={{ clipPath: "polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)" }}>
+                            {/* Top Light Glint */}
+                            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-50"></div>
 
-                                {/* Top Icon Glow */}
-                                <div className={`w-16 h-16 ${bounty.bg} flex items-center justify-center mb-6 relative group-hover:scale-110 transition-transform duration-500 clip-path-polygon`} style={{ clipPath: "polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%)" }}>
-                                    <i className={`${bounty.icon} ${bounty.color} text-3xl drop-shadow-md`}></i>
-                                    <div className={`absolute inset-0 ${bounty.bg} blur-xl opacity-50`}></div>
+                            {/* Content Wrapper */}
+                            <div className="relative h-full flex flex-col items-center justify-between p-8 text-center z-10">
+
+                                {/* Rank Icon/Text */}
+                                <div className="flex flex-col items-center">
+                                    <div className={`
+                                        w-16 h-16 rounded-full flex items-center justify-center mb-4
+                                        bg-black/30 border border-white/10 shadow-inner
+                                        ${bounty.featured ? 'scale-125' : ''}
+                                    `}>
+                                        <i className={`${bounty.icon} ${bounty.color} text-2xl`}></i>
+                                    </div>
+                                    <h3 className={`font-orbitron font-bold uppercase tracking-widest ${bounty.featured ? 'text-2xl' : 'text-xl'} text-white`}>
+                                        {bounty.rank}
+                                    </h3>
                                 </div>
 
-                                <h3 className="text-white font-orbitron text-2xl font-bold tracking-wide mb-2">
-                                    {bounty.rank}
-                                </h3>
-                                <p className="text-gray-400 font-rajdhani text-sm mb-8 max-w-[200px] leading-relaxed">
-                                    {bounty.desc}
-                                </p>
+                                {/* Unique Geometric Divider */}
+                                <div className="w-full flex items-center gap-2 opacity-30 my-2">
+                                    <div className="h-px bg-current flex-1"></div>
+                                    <div className="w-2 h-2 rotate-45 border border-current"></div>
+                                    <div className="h-px bg-current flex-1"></div>
+                                </div>
 
-                                {/* Prize Amount */}
-                                <div className="mt-auto relative">
-                                    <span className={`block text-5xl md:text-6xl font-black font-orbitron ${bounty.color} tracking-tighter drop-shadow-lg scale-100 group-hover:scale-110 transition-transform duration-300`}>
+                                {/* Prize Money */}
+                                <div className="flex flex-col items-center">
+                                    <span className={`block font-black font-orbitron ${bounty.color} tracking-tighter drop-shadow-lg ${bounty.featured ? 'text-5xl md:text-6xl' : 'text-4xl md:text-5xl'}`}>
                                         {bounty.amount}
                                     </span>
-                                    <span className="block text-white/30 font-bold tracking-[0.3em] text-xs mt-2 font-orbitron">
+                                    <span className="text-white/40 font-bold tracking-[0.4em] text-[10px] mt-2 font-orbitron uppercase">
                                         {bounty.currency}
                                     </span>
                                 </div>
 
-                                {/* Bottom Decorative Line */}
-                                <div className={`w-1/2 h-1 rounded-full ${bounty.bg.replace('/10', '/50')} mt-8`}></div>
+                                {/* Description */}
+                                <p className="text-gray-400 font-rajdhani text-sm leading-relaxed max-w-[80%] mt-4">
+                                    {bounty.desc}
+                                </p>
                             </div>
-                        </motion.div>
-                    ))}
-                </div>
+
+                            {/* Hover Interactive Glow */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                        </div>
+
+                        {/* Reflection/Shadow underneath */}
+                        <div className={`
+                            absolute -bottom-8 left-1/2 -translate-x-1/2 w-[80%] h-4 
+                            bg-gradient-to-r ${bounty.bg} blur-xl opacity-40 rounded-full
+                        `}></div>
+                    </motion.div>
+                ))}
             </div>
         </section>
     );
