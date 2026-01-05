@@ -40,6 +40,7 @@ function App() {
                 <Prizes />
                 <Sponsors />
                 <AceBody />
+                <FAQs />
               </>
             )}
 

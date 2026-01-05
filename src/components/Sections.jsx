@@ -1,10 +1,11 @@
 import React, { useRef } from 'react';
 import { motion, useMotionValue, useTransform, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import aboutBg from '../assets/about-bg.png';
-import faqBg from '../assets/faq_bg.png';
+import faqBg from '../assets/hero_bg_purple.jpg';
 import modulesBg from '../assets/modules_bg.png';
 import modulesNewBg from '../assets/modules_new_bg.png';
 import modulesBgFinal from '../assets/modules_bg_final.jpg';
+import quantumIcon from '../assets/quantum_domain.png';
 import modulesAlienBg from '../assets/modules_alien_bg.jpg';
 import modules4kBg from '../assets/modules_4k_bg.jpg';
 import modulesFinalV2 from '../assets/modules_final_v2.png';
@@ -251,6 +252,12 @@ export const Domains = () => (
                     name: "BLOCKCHAIN",
                     role: "Decentralized",
                     img: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2632&auto=format&fit=crop"
+                },
+                {
+                    id: "06",
+                    name: "QUANTUM",
+                    role: "Computing",
+                    img: quantumIcon
                 },
             ].map((domain, idx) => (
                 <motion.div
@@ -1338,6 +1345,15 @@ export const Modules = () => {
             delay: 5,
             pos: 'top',
             img: imgAppDev
+        },
+        {
+            id: 7,
+            title: "Quantum Computing",
+            desc: "Unlock the ultimate computational power with Quantum technology. Explore qubits, superposition, and entanglement to solve problems complexity beyond the reach of classical computers.",
+            top: "calc(45% + 20px)",
+            left: "calc(20% - 20px)",
+            delay: 6,
+            img: quantumIcon
         },
     ];
 

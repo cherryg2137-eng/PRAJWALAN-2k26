@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
+import heroBg from '../assets/hero_bg_purple.jpg';
 
 const Hero = ({ introPlayed, setIntroPlayed }) => {
     // Parallax Motion Values
@@ -15,9 +16,7 @@ const Hero = ({ introPlayed, setIntroPlayed }) => {
     const translateX = useTransform(xSpring, [-0.5, 0.5], ["40px", "-40px"]);
     const translateY = useTransform(ySpring, [-0.5, 0.5], ["40px", "-40px"]);
 
-    // 3D Rotation from Mouse Move
-    const rotateY = useTransform(xSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
-    const rotateX = useTransform(ySpring, [-0.5, 0.5], ["10deg", "-10deg"]);
+
 
     const handleMouseMove = (e) => {
         const { clientX, clientY, currentTarget } = e;
@@ -68,17 +67,13 @@ const Hero = ({ introPlayed, setIntroPlayed }) => {
             */}
 
             {/* Background Image (Parallax) - Always present underneath */}
-            <div className="absolute inset-0 z-0" style={{ perspective: "1000px" }}>
+            <div className="absolute inset-0 z-0">
                 <motion.img
-                    src="https://res.cloudinary.com/dtvplbrns/image/upload/v1767300916/ChatGPT_Image_Jan_2_2026_02_23_33_AM_hotsz5.png"
+                    src={heroBg}
                     alt="Hero Background"
                     className="w-full h-full"
                     style={{
-                        x: translateX,
-                        y: translateY,
-                        rotateX,
-                        rotateY,
-                        scale: 1.15 // Slightly increased scale for 3D
+                        scale: 1.1
                     }}
                 />
                 <div className="absolute inset-0 bg-black/30 mix-blend-multiply"></div>
