@@ -6,12 +6,12 @@ import { motion, AnimatePresence } from "framer-motion";
 const slides = [
     {
         id: 1,
-        img: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=1200", // Group of students/team
+        img: "https://res.cloudinary.com/dtvplbrns/image/upload/v1767782865/sbm_cv1ul4.jpg",
         title: "Senior  Body  Members"
     },
     {
         id: 2,
-        img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200", // Another team shot
+        img: "https://res.cloudinary.com/dtvplbrns/image/upload/v1767782560/IMG-20250905-WA0120_hbe9cy.jpg",
         title: "Executive  Body  Members"
     },
 

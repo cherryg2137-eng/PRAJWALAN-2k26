@@ -26,7 +26,7 @@ const Footer = () => {
                                 <a href="mailto:srkraceofficial@gmail.com" className="block hover:text-white transition-colors cursor-pointer">
                                     srkraceofficial@gmail.com
                                 </a>
-                                <p className="hover:text-white transition-colors cursor-pointer">+91 96661 55020</p>
+                                <p className="hover:text-white transition-colors cursor-pointer">+91 90309 06520</p>
                                 <a
                                     href="https://www.google.com/maps/search/?api=1&query=SRKR+Engineering+College+Bhimavaram+AP"
                                     target="_blank"
@@ -40,36 +40,35 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Quick Links (Span 2) */}
-                    <div className="md:col-span-2">
+                    {/* Quick Links (Span 3) */}
+                    <div className="md:col-span-3">
                         <h3 className="text-white font-medium text-lg mb-6">Quick Links</h3>
                         <ul className="space-y-3 text-gray-500 text-sm font-medium">
-                            {['Home', 'About', 'Events', 'Contact'].map((item) => (
-                                <li key={item}>
-                                    <a href="#" className="hover:text-violet-400 transition-colors duration-300 block transform hover:translate-x-1">
-                                        {item}
-                                    </a>
-                                </li>
-                            ))}
+                            <li>
+                                <a href="#home" className="hover:text-violet-400 transition-colors duration-300 block transform hover:translate-x-1">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#about" className="hover:text-violet-400 transition-colors duration-300 block transform hover:translate-x-1">
+                                    About
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#timeline" className="hover:text-violet-400 transition-colors duration-300 block transform hover:translate-x-1">
+                                    Events
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#contact" className="hover:text-violet-400 transition-colors duration-300 block transform hover:translate-x-1">
+                                    Contact
+                                </a>
+                            </li>
                         </ul>
                     </div>
 
-                    {/* Legal (Span 2) */}
-                    <div className="md:col-span-2">
-                        <h3 className="text-white font-medium text-lg mb-6">Legal</h3>
-                        <ul className="space-y-3 text-gray-500 text-sm font-medium">
-                            {['Privacy Policy', 'Terms & Conditions', 'Code of Conduct'].map((item) => (
-                                <li key={item}>
-                                    <a href="#" className="hover:text-violet-400 transition-colors duration-300 block transform hover:translate-x-1">
-                                        {item}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* CTA Join Us (Span 3) */}
-                    <div className="md:col-span-3 flex flex-col">
+                    {/* CTA Join Us (Span 4) */}
+                    <div className="md:col-span-4 flex flex-col">
                         <h3 className="text-white font-medium text-lg mb-4">Join Us!</h3>
                         <p className="text-gray-500 text-sm mb-6 leading-relaxed">
                             Be a part of the biggest tech fest. We are excited to see you there!

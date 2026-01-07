@@ -1,6 +1,30 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import TeamCard from './TeamCard';
+import aakashImg from '../assets/aakash_tech_final.jpg';
+import abhiImg from '../assets/abhi_marketing_v3.png';
+import mounikaImg from '../assets/mounika_tech.jpg';
+import charanImg from '../assets/charan_tech.png';
+import madhuImg from '../assets/madhu_design_v4.png';
+import prapurnaImg from '../assets/prapurna_design_v2.jpg';
+import satyaImg from '../assets/satya_design_v2.png';
+import meghanaImg from '../assets/meghana_design_v2.png';
+import deepakImg from '../assets/deepak_design_v2.png';
+import manasaImg from '../assets/manasa_art.png';
+import hasiniImg from '../assets/hasini_art.png';
+import ramyaImg from '../assets/ramya_art.png';
+import amruthaImg from '../assets/amrutha_marketing.jpg';
+import amithImg from '../assets/amith_marketing.png';
+import bhargaviImg from '../assets/bhargavi_marketing.png';
+import chaitanyaImg from '../assets/chaitanya_marketing.png';
+import hemanthImg from '../assets/hemanth_marketing.png';
+import niharikaImg from '../assets/niharika_marketing.png';
+import ganaImg from '../assets/gana_marketing.png';
+import rishikImg from '../assets/rishik_marketing.png';
+import deepakChiefImg from '../assets/deepak_chief.png';
+import venkatChiefImg from '../assets/venkat_chief.png';
+import anushaChiefImg from '../assets/anusha_chief.png';
+import lokeshChiefImg from '../assets/lokesh_chief.png';
 
 const Team = () => {
     // Scroll to top on mount
@@ -8,47 +32,33 @@ const Team = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    // 1. Senior Festival Chiefs
-    const seniorChiefs = [
-        {
-            id: 1,
-            name: "Akash",
-            img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop", // Placeholder
-            socials: { linkedin: "https://linkedin.com", instagram: "https://instagram.com", email: "mailto:example@gmail.com" }
-        },
-        {
-            id: 2,
-            name: "Bala Giridhar",
-            img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop", // Placeholder
-            socials: { linkedin: "https://linkedin.com", instagram: "https://instagram.com", email: "mailto:example@gmail.com" }
-        }
-    ];
+
 
     // 1.5. Festival Chiefs (Restored)
     const chiefs = [
         {
             id: 'c1',
             name: "Deepak",
-            img: "https://res.cloudinary.com/dtvplbrns/image/upload/v1767289300/Deepak_Thota_z84d3o.jpg",
-            socials: { linkedin: "https://linkedin.com", instagram: "https://instagram.com", email: "mailto:example@gmail.com" }
+            img: deepakChiefImg,
+            socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" }
         },
         {
             id: 'c2',
             name: "Venkat Sai",
-            img: "https://res.cloudinary.com/dtvplbrns/image/upload/v1767289439/venkat_zyrp3b.jpg",
-            socials: { linkedin: "https://linkedin.com", instagram: "https://instagram.com", email: "mailto:example@gmail.com" }
+            img: venkatChiefImg,
+            socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" }
         },
         {
             id: 'c3',
             name: "Anusha",
-            img: "https://res.cloudinary.com/dtvplbrns/image/upload/v1767289524/Anusha_gwc8un.jpg",
-            socials: { linkedin: "https://linkedin.com", instagram: "https://instagram.com", email: "mailto:example@gmail.com" }
+            img: anushaChiefImg,
+            socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" }
         },
         {
             id: 'c4',
             name: "Lokesh Gandhi",
-            img: "https://res.cloudinary.com/dtvplbrns/image/upload/v1767289626/gandhi_vlvok9.jpg",
-            socials: { linkedin: "https://linkedin.com", instagram: "https://instagram.com", email: "mailto:example@gmail.com" }
+            img: lokeshChiefImg,
+            socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" }
         }
     ];
 
@@ -57,52 +67,52 @@ const Team = () => {
         {
             id: 5,
             name: "Aakash",
-            img: "https://res.cloudinary.com/dtvplbrns/image/upload/v1767290417/AAKASH_v0f0i4.jpg",
-            socials: { linkedin: "https://linkedin.com", instagram: "https://instagram.com", email: "mailto:example@gmail.com" }
+            img: aakashImg,
+            socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" }
         },
         {
             id: 6,
             name: "Charan",
-            img: "https://res.cloudinary.com/dtvplbrns/image/upload/v1767290165/charan_kdppkh.jpg",
-            socials: { linkedin: "https://linkedin.com", instagram: "https://instagram.com", email: "mailto:example@gmail.com" }
+            img: charanImg,
+            socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" }
         },
         {
             id: 7,
             name: "Mounika",
-            img: "https://res.cloudinary.com/dtvplbrns/image/upload/v1767290303/Mounika_kgsqrm.jpg",
-            socials: { linkedin: "https://linkedin.com", instagram: "https://instagram.com", email: "mailto:example@gmail.com" }
+            img: mounikaImg,
+            socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" }
         }
     ];
 
     // 3. Designing Team
     const designTeam = [
-        { id: 'd1', name: "Madhu", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1000&auto=format&fit=crop" },
-        { id: 'd2', name: "Prapurna", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1000&auto=format&fit=crop" },
-        { id: 'd3', name: "Satya", img: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1000&auto=format&fit=crop" },
-        { id: 'd4', name: "Meghana", img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop" },
-        { id: 'd5', name: "Deepak Vardhan", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1000&auto=format&fit=crop" },
-    ].map(m => ({ ...m, socials: { linkedin: "#", instagram: "#", email: "#" } }));
+        { id: 'd1', name: "Madhu", img: madhuImg },
+        { id: 'd2', name: "Prapurna", img: prapurnaImg },
+        { id: 'd3', name: "Satya", img: satyaImg },
+        { id: 'd4', name: "Meghana", img: meghanaImg },
+        { id: 'd5', name: "Deepak Vardhan", img: deepakImg },
+    ].map(m => ({ ...m, socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } }));
 
     // 4. Art & Craft Team
     const artTeam = [
-        { id: 'a1', name: "Suneetha", img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1000&auto=format&fit=crop" },
-        { id: 'a2', name: "Manasa", img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1000&auto=format&fit=crop" },
-        { id: 'a3', name: "Hasini", img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1000&auto=format&fit=crop" },
-        { id: 'a4', name: "Ramya", img: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1000&auto=format&fit=crop" },
-    ].map(m => ({ ...m, socials: { linkedin: "#", instagram: "#", email: "#" } }));
+        { id: 'a1', name: "Suneetha", img: "https://res.cloudinary.com/dtvplbrns/image/upload/v1767783114/Gemini_Generated_Image_td2a3ltd2a3ltd2a_imtlox.png" },
+        { id: 'a2', name: "Manasa", img: manasaImg },
+        { id: 'a3', name: "Hasini", img: hasiniImg },
+        { id: 'a4', name: "Ramya", img: ramyaImg },
+    ].map(m => ({ ...m, socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } }));
 
     // 5. Marketing Team
     const marketingTeam = [
-        { id: 'm1', name: "Amrutha", img: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=1000&auto=format&fit=crop" },
-        { id: 'm2', name: "Amith", img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop" },
-        { id: 'm3', name: "Abhi", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1000&auto=format&fit=crop" },
-        { id: 'm4', name: "Bhargavi", img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop" },
-        { id: 'm5', name: "Chaitanya", img: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=1000&auto=format&fit=crop" },
-        { id: 'm6', name: "Hemanth", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop" },
-        { id: 'm7', name: "Niharika", img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1000&auto=format&fit=crop" },
-        { id: 'm8', name: "Rishik", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1000&auto=format&fit=crop" },
-        { id: 'm9', name: "Gana", img: "https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1000&auto=format&fit=crop" },
-    ].map(m => ({ ...m, socials: { linkedin: "#", instagram: "#", email: "#" } }));
+        { id: 'm1', name: "Amrutha", img: amruthaImg },
+        { id: 'm2', name: "Amith", img: amithImg },
+        { id: 'm3', name: "Abhi", img: abhiImg },
+        { id: 'm4', name: "Bhargavi", img: bhargaviImg },
+        { id: 'm5', name: "Chaitanya", img: chaitanyaImg },
+        { id: 'm6', name: "Hemanth", img: hemanthImg },
+        { id: 'm7', name: "Niharika", img: niharikaImg },
+        { id: 'm8', name: "Rishik", img: rishikImg },
+        { id: 'm9', name: "Gana", img: ganaImg },
+    ].map(m => ({ ...m, socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } }));
 
 
     const sectionVariants = {
@@ -156,13 +166,7 @@ const Team = () => {
 
             <div className="container mx-auto px-6 relative z-10">
 
-                {/* 1. SENIOR FESTIVAL CHIEFS */}
-                <SectionHeader title="SENIOR FESTIVAL CHIEFS" />
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-12 max-w-[900px] mx-auto">
-                    {seniorChiefs.map((member, index) => (
-                        <TeamCard key={member.id} member={member} delay={index * 0.15} />
-                    ))}
-                </div>
+
 
                 {/* 1.5. FESTIVAL CHIEFS */}
                 <SectionHeader title="FESTIVAL CHIEFS" />

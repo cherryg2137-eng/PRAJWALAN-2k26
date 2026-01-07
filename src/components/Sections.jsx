@@ -2,12 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useMotionValue, useTransform, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import aboutBg from '../assets/about-bg.png';
 import faqBg from '../assets/hero_bg_purple.jpg';
-import modulesBg from '../assets/modules_bg.png';
-import modulesNewBg from '../assets/modules_new_bg.png';
-import modulesBgFinal from '../assets/modules_bg_final.jpg';
 import quantumIcon from '../assets/quantum_domain.png';
-import modulesAlienBg from '../assets/modules_alien_bg.jpg';
-import modules4kBg from '../assets/modules_4k_bg.jpg';
 import modulesFinalV2 from '../assets/modules_final_v2.png';
 
 // Import Module Detail Images
@@ -17,6 +12,7 @@ import imgML from '../assets/generated/module_machine_learning_1767207769069.png
 import imgIoT from '../assets/generated/module_iot_1767207786926.png';
 import imgWeb3 from '../assets/generated/module_web3_1767207806213.png';
 import imgAppDev from '../assets/generated/module_app_dev_1767207823039.png';
+import imgAgenticAI from '../assets/agentic_ai.png';
 
 // --- Shared Animation Variants ---
 const sectionVariants = {
@@ -205,116 +201,12 @@ export const About = () => {
     );
 };
 
-// --- ACCORDION DOMAINS COMPONENT ---
+// --- DOMAINS (Hidden) ---
 export const Domains = () => (
-    /* 
-    <Section id="domains" className="relative py-32 bg-[#05010d] overflow-hidden">
-        
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 mix-blend-overlay pointer-events-none"></div>
-
-        
-        <motion.div variants={itemVariants} className="text-center mb-16 relative z-10">
-            <h2 className="text-6xl md:text-8xl font-black text-white font-orbitron tracking-tighter uppercase drop-shadow-[0_0_25px_rgba(45,212,191,0.3)]">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-violet-500">WAR</span> ZONES
-            </h2>
-            <p className="text-teal-400/80 font-orbitron tracking-[0.5em] text-sm uppercase mt-4">Select Deployment Vector</p>
-        </motion.div>
-
-        
-        <div className="flex flex-col md:flex-row h-[80vh] w-full max-w-[90vw] mx-auto gap-2 md:gap-4 px-4 overflow-hidden">
-            {[
-                {
-                    id: "01",
-                    name: "WEB OPS",
-                    role: "Development",
-                    img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
-                },
-                {
-                    id: "02",
-                    name: "NEURAL NETS",
-                    role: "Intelligence",
-                    img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop"
-                },
-                {
-                    id: "03",
-                    name: "CYBER SEC",
-                    role: "Defense",
-                    img: "https://images.unsplash.com/photo-1563206767-5b1d972b9fb9?q=80&w=1974&auto=format&fit=crop"
-                },
-                {
-                    id: "04",
-                    name: "IOT CORE",
-                    role: "Hardware",
-                    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
-                },
-                {
-                    id: "05",
-                    name: "BLOCKCHAIN",
-                    role: "Decentralized",
-                    img: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2632&auto=format&fit=crop"
-                },
-                {
-                    id: "06",
-                    name: "QUANTUM",
-                    role: "Computing",
-                    img: quantumIcon
-                },
-            ].map((domain, idx) => (
-                <motion.div
-                    key={idx}
-                    className="relative flex-1 min-w-[60px] md:min-w-[80px] h-full rounded-2xl overflow-hidden cursor-pointer transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group"
-                    whileHover={{ flexGrow: 10 }} // Framer motion or just CSS
-                    style={{ flexGrow: 1 }}
-                >
-                    
-                    <div className="absolute inset-0">
-                        <img
-                            src={domain.img}
-                            alt={domain.name}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:filter-none filter grayscale-[0.8] brightness-50"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90 group-hover:opacity-40 transition-opacity duration-500"></div>
-                    </div>
-
-                    
-                    <div className="absolute inset-0 p-6 flex flex-col justify-between z-10">
-
-                        
-                        <div className="flex justify-between items-start opacity-70 group-hover:opacity-100 transition-opacity">
-                            <span className="text-teal-400 font-orbitron font-bold text-xl md:text-2xl">0{idx + 1}</span>
-                            <i className="bi bi-crosshair text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
-                        </div>
-
-                        
-                        <div className="relative h-full flex flex-col justify-end">
-
-                            
-                            
-
-                            <h3 className="text-3xl md:text-5xl font-black text-white font-orbitron tracking-tighter uppercase mb-2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 delay-100">
-                                {domain.name}
-                            </h3>
-                            <p className="text-teal-300 font-orbitron uppercase tracking-widest text-sm md:text-base opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 delay-200">
-                                // {domain.role}
-                            </p>
-
-                            
-                            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 -rotate-90 origin-center whitespace-nowrap group-hover:opacity-0 transition-opacity duration-300 pointer-events-none">
-                                <span className="text-gray-500 font-bold font-orbitron tracking-widest text-lg uppercase">{domain.name}</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-                    <div className="absolute inset-0 border border-white/10 group-hover:border-teal-400/50 rounded-2xl transition-colors duration-500"></div>
-                </motion.div>
-            ))}
-        </div>
-    </Section>
-    */
     null
 );
 
+// --- GALLERY COMPONENT (UPDATED - 7 ITEMS, NO TEXT) ---
 export const Gallery = () => {
     const [selectedId, setSelectedId] = React.useState(null);
 
@@ -329,39 +221,90 @@ export const Gallery = () => {
         mouseY.set(clientY / innerHeight - 0.5);
     };
 
-    // Parallax Transforms (Different depths for different layers)
+    // Parallax Transforms
     const xHero = useTransform(mouseX, [-0.5, 0.5], [20, -20]);
     const yHero = useTransform(mouseY, [-0.5, 0.5], [20, -20]);
 
-    const xBack = useTransform(mouseX, [-0.5, 0.5], [-40, 40]);
-    const yBack = useTransform(mouseY, [-0.5, 0.5], [-40, 40]);
+    // --- Image References ---
+    // 1. Portrait/Vertical (UPDATED URL)
+    const img1 = "https://res.cloudinary.com/dtvplbrns/image/upload/v1767776221/57e6171f-ce86-4bc8-a7df-63914934a78a_xnutui.jpg";
+    // 2. Group/Landscape
+    const img2 = "https://res.cloudinary.com/dtvplbrns/image/upload/v1767764240/WhatsApp_Image_2026-01-07_at_10.53.14_AM_1_doxayq.jpg";
+    // 3. Wide Stage
+    const img3 = "https://res.cloudinary.com/dtvplbrns/image/upload/v1767765391/IMG_20250218_094249_ekzplm.jpg";
+    // 4. Lamps (Vertical)
+    const img4 = "https://res.cloudinary.com/dtvplbrns/image/upload/v1767764330/WhatsApp_Image_2026-01-07_at_11.08.04_AM_jswcmj.jpg";
+    // 5. New (Vertical/Crowd)
+    const img5 = "https://res.cloudinary.com/dtvplbrns/image/upload/v1767766034/WhatsApp_Image_2026-01-07_at_11.08.03_AM_cdni0r.jpg";
+    // 6. New (Vertical/Stage Side)
+    const img6 = "https://res.cloudinary.com/dtvplbrns/image/upload/v1767766553/IMG_4422_zr9ge7.jpg";
+    // 7. New (Wide/Hall)
+    const img7 = "https://res.cloudinary.com/dtvplbrns/image/upload/v1767767510/Screenshot_20260107_115753_wopyzi.jpg";
 
-    const xFore = useTransform(mouseX, [-0.5, 0.5], [60, -60]);
-    // Luxury Gallery Data (Hackathon Masonry)
+    // --- Gallery Data (7 Distinct Items) ---
     const items = [
-        // 1. Main Feature - The Arena (Large)
-        { id: '1', title: 'The Arena', category: 'Main Stage', img: "/assets/gallery/stage.png", colSpan: 'md:col-span-8', rowSpan: 'md:row-span-2', height: 'h-[500px] md:h-[600px]' },
-
-        // 2. Side Detail - Innovators (Small)
-        { id: '2', title: 'Innovators', category: 'Teams', img: "/assets/gallery/team.png", colSpan: 'md:col-span-4', rowSpan: 'md:row-span-1', height: 'h-[240px] md:h-[290px]' },
-
-        // 3. Side Detail - The Summit (Small)
-        { id: '3', title: 'The Summit', category: 'Finale', img: "https://res.cloudinary.com/dtvplbrns/image/upload/v1766949892/IMG_4351_imryqr.jpg", colSpan: 'md:col-span-4', rowSpan: 'md:row-span-1', height: 'h-[240px] md:h-[290px]' },
-
-        // 4. Bottom Row - Deep Focus (Medium)
-        { id: '4', title: 'Deep Focus', category: 'Hackathon', img: "/assets/gallery/neural.png", colSpan: 'md:col-span-4', rowSpan: 'md:row-span-1', height: 'h-[300px]' },
-
-        // 5. Bottom Row - Victory (Medium)
-        { id: '5', title: 'Victory', category: 'Awards', img: "/assets/gallery/trophy.png", colSpan: 'md:col-span-4', rowSpan: 'md:row-span-1', height: 'h-[300px]' },
-
-        // 6. Bottom Row - Network (Medium)
-        { id: '6', title: 'Network', category: 'Community', img: "https://images.unsplash.com/photo-1517433456452-f96cb9365b99?auto=format&fit=crop&q=80&w=400", colSpan: 'md:col-span-4', rowSpan: 'md:row-span-1', height: 'h-[300px]' },
+        // 1. Main Feature (Left Side - Big)
+        {
+            id: '1',
+            img: img3,
+            colSpan: 'md:col-span-8',
+            rowSpan: 'md:row-span-2',
+            height: 'h-[400px] md:h-[600px]'
+        },
+        // 2. Top Right
+        {
+            id: '2',
+            img: img5,
+            colSpan: 'md:col-span-4',
+            rowSpan: 'md:row-span-1',
+            height: 'h-[240px] md:h-[290px]'
+        },
+        // 3. Bottom Right
+        {
+            id: '3',
+            img: img2,
+            colSpan: 'md:col-span-4',
+            rowSpan: 'md:row-span-1',
+            height: 'h-[240px] md:h-[290px]'
+        },
+        // 4. Bottom Row 1 (Medium)
+        {
+            id: '4',
+            img: img6,
+            colSpan: 'md:col-span-4',
+            rowSpan: 'md:row-span-1',
+            height: 'h-[300px]'
+        },
+        // 5. Bottom Row 2 (Medium) - Lamps placed here (New Position)
+        {
+            id: '5',
+            img: img4,
+            colSpan: 'md:col-span-4',
+            rowSpan: 'md:row-span-1',
+            height: 'h-[300px]'
+        },
+        // 6. Bottom Row 3 (Medium)
+        {
+            id: '6',
+            img: img1,
+            colSpan: 'md:col-span-4',
+            rowSpan: 'md:row-span-1',
+            height: 'h-[300px]'
+        },
+        // 7. Full Width Feature Bottom
+        {
+            id: '7',
+            img: img7,
+            colSpan: 'md:col-span-12',
+            rowSpan: 'md:row-span-2',
+            height: 'h-[500px] md:h-[600px]'
+        },
     ];
 
     return (
         <section id="gallery" className="relative w-full bg-[#050505] flex flex-col items-center justify-center pt-24 pb-32 px-4 md:px-12">
 
-            {/* Header - FAQ Style Match */}
+            {/* Header */}
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -371,99 +314,63 @@ export const Gallery = () => {
                 <h2 className="text-4xl md:text-6xl font-dune text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400 tracking-[0.1em] mb-4 drop-shadow-[0_0_20px_rgba(139,92,246,0.4)]">
                     GALLERY
                 </h2>
-                <p className="text-violet-200 font-rajdhani tracking-[0.2em] text-xs md:text-sm max-w-lg mx-auto opacity-80 leading-relaxed">
-                    A visual archive of innovation, competition, and triumph.
-                </p>
                 <div className="h-[1px] w-20 bg-violet-600/50 mx-auto mt-6 shadow-[0_0_10px_#7c3aed]"></div>
             </motion.div>
 
-            {/* Masonry Grid - Structured & Luxury */}
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 w-full max-w-[1600px] mx-auto">
+            {/* BENTO GRID LAYOUT */}
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 w-full max-w-[1400px] mx-auto">
                 {items.map((item) => (
                     <motion.div
                         layoutId={`card-container-${item.id}`}
                         key={item.id}
                         onClick={() => setSelectedId(item.id)}
-                        className={`relative group cursor-pointer overflow-hidden rounded-sm bg-[#111] shadow-lg ${item.colSpan} ${item.rowSpan} ${item.height}`}
+                        className={`relative group cursor-pointer overflow-hidden rounded-xl border border-white/5 bg-[#111] shadow-2xl ${item.colSpan} ${item.rowSpan} ${item.height}`}
                     >
                         <motion.div className="w-full h-full relative overflow-hidden">
                             {/* Image */}
                             <motion.img
                                 layoutId={`card-image-${item.id}`}
                                 src={item.img}
-                                alt={item.title}
-                                className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-700 ease-out group-hover:scale-[1.03]"
+                                className="w-full h-full object-cover object-center opacity-90 group-hover:opacity-100 transition-all duration-700 ease-out group-hover:scale-105"
                             />
 
-                            {/* Professional Dark Overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-700"></div>
+                            {/* Luxury Gold/Violet Border on Hover */}
+                            <div className="absolute inset-0 border-2 border-transparent group-hover:border-violet-400/30 transition-colors duration-500 rounded-xl z-20"></div>
 
-                            {/* Minimal Label - Bottom Left */}
-                            <div className="absolute bottom-8 left-8 z-20">
-                                <div className="flex items-center gap-3 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0 delay-75">
-                                    <div className="w-6 h-[1px] bg-[#d4af37]"></div>
-                                    <p className="text-[#d4af37] text-[10px] font-orbitron tracking-[0.2em] uppercase">{item.category}</p>
-                                </div>
-                                <h3 className="text-[#f5f5f7] font-orbitron text-2xl font-light tracking-wider drop-shadow-md">{item.title}</h3>
-                            </div>
+                            {/* Minimal Gradient Overlay (No Text) */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-40 transition-opacity duration-700"></div>
                         </motion.div>
                     </motion.div>
                 ))}
             </div>
 
-            {/* Cinematic Full Screen Lightbox */}
+            {/* Modal Lightbox */}
             <AnimatePresence>
                 {selectedId && (
                     <motion.div
                         layoutId={`card-container-${selectedId}`}
-                        className="fixed inset-0 z-[100] bg-black/98 flex items-center justify-center backdrop-blur-sm"
+                        className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center backdrop-blur-md p-4"
                         onClick={() => setSelectedId(null)}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        exit={{ opacity: 0, transition: { duration: 0.4 } }}
+                        exit={{ opacity: 0, transition: { duration: 0.3 } }}
                     >
                         <button
-                            className="absolute top-8 right-8 text-white/40 hover:text-white text-xs font-orbitron tracking-[0.2em] uppercase transition-colors duration-300 z-50 pointer-events-auto border border-white/10 px-4 py-2 rounded-full hover:bg-white/5"
+                            className="absolute top-8 right-8 text-white/60 hover:text-white text-sm font-orbitron tracking-widest uppercase transition-colors z-50 border border-white/20 px-6 py-2 rounded-full bg-black/50"
                             onClick={(e) => { e.stopPropagation(); setSelectedId(null); }}
                         >
-                            Close
+                            Close [X]
                         </button>
 
                         <div
-                            className="relative w-full h-full flex flex-col md:flex-row max-w-[1920px] mx-auto"
+                            className="relative w-full max-w-6xl aspect-video bg-[#050505] rounded-xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(139,92,246,0.2)]"
                             onClick={(e) => e.stopPropagation()}
                         >
-                            {/* Expanded Image - Focused */}
-                            <motion.div
-                                className="relative w-full md:w-3/4 h-2/3 md:h-full overflow-hidden"
+                            <motion.img
                                 layoutId={`card-image-${selectedId}`}
-                            >
-                                <motion.img
-                                    src={items.find(i => i.id === selectedId).img}
-                                    className="w-full h-full object-contain md:object-cover bg-[#050505]"
-                                />
-                            </motion.div>
-
-                            {/* Details Panel - Professional Sidebar */}
-                            <motion.div
-                                initial={{ opacity: 0, x: 20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.3, duration: 0.6 }}
-                                className="w-full md:w-1/4 h-1/3 md:h-full bg-[#080808] p-10 md:p-16 flex flex-col justify-center text-left border-l border-white/5"
-                            >
-                                <span className="text-[#d4af37] font-orbitron tracking-[0.3em] text-xs uppercase mb-8 flex items-center gap-4">
-                                    <span className="w-12 h-[1px] bg-[#d4af37]"></span>
-                                    {items.find(i => i.id === selectedId).category}
-                                </span>
-                                <h2 className="text-4xl md:text-5xl text-[#f5f5f7] font-orbitron font-light mb-8 leading-tight">{items.find(i => i.id === selectedId).title}</h2>
-                                <p className="text-gray-500 font-rajdhani leading-relaxed text-sm md:text-base font-light mb-12">
-                                    A defining moment from the event. This visual output represents the dedication, innovation, and spirit of competition that drives our community forward.
-                                </p>
-
-                                <div className="mt-auto opacity-30">
-                                    <p className="text-[10px] font-mono text-gray-400">IMG_ID: {items.find(i => i.id === selectedId).id}_RAW</p>
-                                </div>
-                            </motion.div>
+                                src={items.find(i => i.id === selectedId).img}
+                                className="w-full h-full object-contain"
+                            />
                         </div>
                     </motion.div>
                 )}
@@ -477,27 +384,27 @@ export const PastWinners = () => {
     const winners2k25 = [
         {
             place: 2,
-            title: "Trendsetters",
+            title: "House Stark",
             prize: "Silver",
-            img: imgAppDev,
+            img: "https://res.cloudinary.com/dtvplbrns/image/upload/v1767778343/2_house_stark_grnmwl.jpg",
             gradient: "from-cyan-500/20 to-blue-600/5",
             border: "border-cyan-500/30",
             text: "text-cyan-200"
         },
         {
             place: 1,
-            title: "Innovators X",
+            title: "Neurons",
             prize: "Gold",
-            img: imgML,
+            img: "https://res.cloudinary.com/dtvplbrns/image/upload/v1767778093/1_neurons_jxut1t.jpg",
             gradient: "from-amber-500/20 to-orange-600/5",
             border: "border-amber-500/40",
             text: "text-amber-200"
         },
         {
             place: 3,
-            title: "Dream Coders",
+            title: "Zenith Coder",
             prize: "Bronze",
-            img: imgIoT,
+            img: "https://res.cloudinary.com/dtvplbrns/image/upload/v1767778505/WhatsApp_Image_2026-01-07_at_2.57.24_PM_vnbes1.jpg",
             gradient: "from-rose-500/20 to-pink-600/5",
             border: "border-rose-500/30",
             text: "text-rose-200"
@@ -507,27 +414,27 @@ export const PastWinners = () => {
     const winners2k24 = [
         {
             place: 2,
-            title: "Code Crafters",
+            title: "Vision Guardians",
             prize: "Silver",
-            img: imgWebDev,
+            img: "https://res.cloudinary.com/dtvplbrns/image/upload/v1767779129/IMG_9082_qrxwvn.jpg",
             gradient: "from-cyan-500/20 to-blue-600/5",
             border: "border-cyan-500/30",
             text: "text-cyan-200"
         },
         {
             place: 1,
-            title: "Pixel Perfect",
+            title: "Cage Decoders",
             prize: "Gold",
-            img: imgCyberSec,
+            img: "https://res.cloudinary.com/dtvplbrns/image/upload/v1767778782/WhatsApp_Image_2026-01-07_at_2.52.06_PM_lpsgxi.jpg",
             gradient: "from-amber-500/20 to-orange-600/5",
             border: "border-amber-500/40",
             text: "text-amber-200"
         },
         {
             place: 3,
-            title: "Logic Lords",
+            title: "Code Bytes",
             prize: "Bronze",
-            img: imgWeb3,
+            img: "https://res.cloudinary.com/dtvplbrns/image/upload/v1767779305/IMG_9078_aw71sy.jpg",
             gradient: "from-rose-500/20 to-pink-600/5",
             border: "border-rose-500/30",
             text: "text-rose-200"
@@ -549,7 +456,7 @@ export const PastWinners = () => {
                     <img
                         src={winner.img}
                         alt={winner.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-[0.9] group-hover:brightness-100"
+                        className="w-full h-full object-cover object-[50%_20%] transition-transform duration-700 group-hover:scale-105 filter brightness-[0.9] group-hover:brightness-100"
                     />
 
                     {/* Gradient Overlay for Text Visibility */}
@@ -627,7 +534,6 @@ export const PastWinners = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
                     {/* Render order: 2nd, 1st, 3rd to resemble a podium if 3 items, or just grid */}
-                    {/* Mapping simply for now, sticking to logic */}
                     <WinnerCard winner={winners2k25[1]} index={0} /> {/* Gold */}
                     <WinnerCard winner={winners2k25[0]} index={1} /> {/* Silver */}
                     <WinnerCard winner={winners2k25[2]} index={2} /> {/* Bronze */}
@@ -662,32 +568,32 @@ export const PastWinners = () => {
 export const Timeline = () => {
     const events = [
         {
-            date: "25",
-            month: "DEC",
+            date: "20",
+            month: "JAN",
             title: "REGISTRATION",
             subtitle: "INITIATION",
             details: ["Portal Opens", "Team Formation"],
             icon: "bi-person-plus-fill"
         },
         {
-            date: "20",
-            month: "JAN",
+            date: "09",
+            month: "FEB",
             title: "ROUND 1",
             subtitle: "QUALIFIERS",
-            details: ["MVP Submission", "Code Validation"],
+            details: ["Video Submission", "Shortlisting"],
             icon: "bi-laptop"
         },
         {
-            date: "15",
+            date: "18",
             month: "FEB",
             title: "ROUND 2",
             subtitle: "ELIMINATION",
-            details: ["Live Demo", "Deep Tech Review"],
+            details: ["PPT Presentation", "Evaluation"],
             icon: "bi-broadcast"
         },
         {
-            date: "12",
-            month: "MAR",
+            date: "27",
+            month: "FEB",
             title: "HAVOC",
             subtitle: "FINALE",
             details: ["24H Marathon", "Grand Finale"],
@@ -763,11 +669,10 @@ export const Timeline = () => {
                         key={idx}
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ margin: "-100px" }}
+                        viewport={{ once: true, margin: "-100px" }}
                         transition={{
                             duration: 0.8,
-                            type: "spring",
-                            bounce: 0.4
+                            ease: "easeOut"
                         }}
                         className={`relative z-10 flex items-center justify-center w-full gap-8 md:gap-20 ${idx % 2 === 0 ? 'flex-col md:flex-row' : 'flex-col md:flex-row-reverse'}`}
                     >
@@ -1355,6 +1260,16 @@ export const Modules = () => {
             delay: 6,
             img: quantumIcon
         },
+        {
+            id: 8,
+            title: "Agentic AI",
+            desc: "Build autonomous AI agents capable of reasoning, planning, and executing complex multi-step tasks without human intervention. Design intelligent systems that can adapt, learn from feedback, and collaborate with other agents to solve sophisticated real-world challenges.",
+            top: "calc(60% + 80px)",
+            left: "calc(50% + 120px)",
+            delay: 7,
+            pos: 'left',
+            img: imgAgenticAI
+        },
     ];
 
     return (
@@ -1463,14 +1378,14 @@ export const Modules = () => {
 
                                 {/* Styles for CSS Pause */}
                                 <style>{`
-                                    .group:hover .group-hover\\:pause-animation {
-                                        animation-play-state: paused;
-                                    }
-                                `}</style>
+                                    .group:hover .group-hover\\:pause-animation {
+                                        animation-play-state: paused;
+                                    }
+                                `}</style>
 
                                 {/* --- Domain Card (Glassmorphic Reveal) --- */}
                                 <div className={`absolute w-72 opacity-0 invisible transition-all duration-500 ease-out z-30
-                                    ${mod.pos === 'bottom'
+                                    ${mod.pos === 'bottom'
                                         ? 'top-16 left-1/2 -translate-x-1/2 translate-y-4 group-hover:opacity-100 group-hover:visible group-hover:translate-y-6'
                                         : mod.pos === 'top'
                                             ? 'bottom-16 left-1/2 -translate-x-1/2 -translate-y-4 group-hover:opacity-100 group-hover:visible group-hover:-translate-y-6'
@@ -1533,7 +1448,7 @@ export const Modules = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: mod.id * 0.1 }}
-                            className="w-full"
+                            className={`w-full ${mod.title === 'Cyber Security' ? 'mt-[50px]' : ''} ${mod.title === 'Machine Learning' ? 'pl-[50px]' : ''}`}
                         >
                             <div className="relative bg-[#0F0A1F]/90 backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden shadow-lg">
                                 {/* Image Header */}
@@ -1568,5 +1483,3 @@ export const Modules = () => {
         </Section>
     );
 };
-
-
