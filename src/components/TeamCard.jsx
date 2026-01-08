@@ -22,7 +22,7 @@ const TeamCard = ({ member, delay }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay, duration: 0.6, ease: "easeOut" }}
-            className="w-full h-[400px] cursor-pointer perspective-1000"
+            className="w-full max-w-[350px] h-[400px] cursor-pointer perspective-1000"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             onClick={handleClick}

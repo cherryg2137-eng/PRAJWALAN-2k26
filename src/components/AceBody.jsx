@@ -172,9 +172,9 @@ const AceBody = () => {
                             />
 
                             {/* Overlay & Caption */}
-                            <div className="absolute inset-x-0 bottom-0 pt-20 pb-6 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex flex-col items-center justify-end">
-                                <div className="px-6 py-2 bg-black/60 backdrop-blur-md border border-white/10 rounded-full">
-                                    <span className="text-white font-rajdhani font-bold tracking-[0.25em] uppercase text-sm md:text-base">
+                            <div className="absolute inset-x-0 bottom-0 pt-8 pb-3 md:pt-20 md:pb-6 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex flex-col items-center justify-end">
+                                <div className="px-4 py-1.5 md:px-6 md:py-2 bg-black/60 backdrop-blur-md border border-white/10 rounded-full">
+                                    <span className="text-white font-rajdhani font-bold tracking-[0.15em] md:tracking-[0.25em] uppercase text-xs md:text-base">
                                         {slides[currentIndex].title}
                                     </span>
                                 </div>

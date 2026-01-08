@@ -808,7 +808,7 @@ export const Prizes = () => {
         {
             id: '01',
             rank: 'Runner Up',
-            amount: '15,000',
+            amount: '20,000',
             currency: 'INR',
             color: 'text-cyan-400',
             bg: 'from-cyan-500/20 to-blue-500/5',
@@ -820,7 +820,7 @@ export const Prizes = () => {
         {
             id: '00',
             rank: 'Champion',
-            amount: '20,000',
+            amount: '25,000',
             currency: 'INR',
             color: 'text-amber-400',
             bg: 'from-amber-500/20 to-orange-600/5',
@@ -833,7 +833,7 @@ export const Prizes = () => {
         {
             id: '02',
             rank: '2nd Runner Up',
-            amount: '10,000',
+            amount: '15,000',
             currency: 'INR',
             color: 'text-rose-400',
             bg: 'from-rose-500/20 to-pink-500/5',
@@ -979,7 +979,8 @@ export const Prizes = () => {
     );
 };
 
-// --- PURPLE MARQUEE SPONSORS ---
+// --- PURPLE MARQUEE SPONSORS --- (COMMENTED OUT)
+/*
 export const Sponsors = () => {
     // Row 1: Tech Giants
     const row1Sponsors = [
@@ -1003,7 +1004,7 @@ export const Sponsors = () => {
 
     return (
         <Section id="sponsors" className="pt-8 pb-16 bg-black relative overflow-hidden" title="">
-            {/* Header */}
+            {/* Header *\/}
             <motion.div
                 initial="hidden"
                 whileInView="visible"
@@ -1012,13 +1013,13 @@ export const Sponsors = () => {
                 className="flex items-center justify-center mb-16 relative z-10 w-full mt-12"
             >
                 <div className="flex items-center gap-2 md:gap-4">
-                    {/* Left Bracket */}
+                    {/* Left Bracket *\/}
                     <svg width="40" height="80" viewBox="0 0 40 100" className="w-6 h-12 md:w-8 md:h-16 fill-none stroke-violet-400/80 stroke-[16] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]">
                         <path d="M35 5 L5 50 L35 95" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
 
                     <div className="relative overflow-hidden pl-4 pr-2 md:pl-6 md:pr-4 py-2 border-x-2 border-violet-400/80 bg-transparent rounded-xl">
-                        {/* Shine Effect */}
+                        {/* Shine Effect *\/}
                         <motion.div
                             className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/30 to-transparent skew-x-12"
                             initial={{ x: "-100%" }}
@@ -1036,17 +1037,17 @@ export const Sponsors = () => {
                         </h2>
                     </div>
 
-                    {/* Right Bracket */}
+                    {/* Right Bracket *\/}
                     <svg width="40" height="80" viewBox="0 0 40 100" className="w-6 h-12 md:w-8 md:h-16 fill-none stroke-violet-400/80 stroke-[16] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]">
                         <path d="M5 5 L35 50 L5 95" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </div>
             </motion.div>
 
-            {/* Marquee Container */}
+            {/* Marquee Container *\/}
             <div className="flex flex-col gap-16 relative z-10 overflow-hidden opacity-90 hover:opacity-100 transition-opacity duration-500 group">
 
-                {/* Row 1: Left to Right */}
+                {/* Row 1: Left to Right *\/}
                 <div className="flex overflow-visible relative w-full py-4">
                     <div className="flex gap-20 items-center whitespace-nowrap animate-marquee-reverse group-hover:paused will-change-transform">
                         {marqueeRow1.map((brand, idx) => (
@@ -1064,7 +1065,7 @@ export const Sponsors = () => {
                     </div>
                 </div>
 
-                {/* Row 2: Right to Left */}
+                {/* Row 2: Right to Left *\/}
                 <div className="flex overflow-visible relative w-full py-4">
                     <div className="flex gap-20 items-center whitespace-nowrap animate-marquee group-hover:paused will-change-transform">
                         {marqueeRow2.map((brand, idx) => (
@@ -1083,7 +1084,7 @@ export const Sponsors = () => {
                 </div>
             </div>
 
-            {/* Background elements to match the misty look */}
+            {/* Background elements to match the misty look *\/}
             <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-violet-900/5 to-transparent pointer-events-none"></div>
             <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-20 pointer-events-none"></div>
             <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-20 pointer-events-none"></div>
@@ -1091,6 +1092,10 @@ export const Sponsors = () => {
         </Section>
     );
 };
+*/
+
+// Temporary placeholder to avoid import errors
+export const Sponsors = () => null;
 
 // --- HOLOGRAPHIC TERMINAL FAQ ---
 export const FAQs = () => {
@@ -1461,7 +1466,7 @@ export const Modules = () => {
                                 `}</style>
 
                                 {/* --- Domain Card (Glassmorphic Reveal) --- */}
-                                <div className={`absolute w-72 opacity-0 invisible transition-all duration-500 ease-out z-30
+                                <div className={`absolute w-72 opacity-0 invisible transition-all duration-500 ease-out z-50
                                     ${mod.pos === 'bottom'
                                         ? 'top-16 left-1/2 -translate-x-1/2 translate-y-4 group-hover:opacity-100 group-hover:visible group-hover:translate-y-6'
                                         : mod.pos === 'top'
