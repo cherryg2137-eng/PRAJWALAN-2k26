@@ -1172,7 +1172,7 @@ export const FAQs = () => {
                             onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
                             className="w-full flex items-center justify-between py-4 text-left group hover:bg-violet-500/5 px-4 rounded-lg transition-colors"
                         >
-                            <span className={`font-rajdhani tracking-wider text-sm md:text-base transition-colors uppercase pr-8 ${openIndex === idx ? 'text-violet-300' : 'text-violet-400/80 group-hover:text-violet-300'}`}>
+                            <span className={`font-rajdhani font-bold tracking-wider text-sm md:text-base transition-colors uppercase pr-8 ${openIndex === idx ? 'text-white' : 'text-white/90 group-hover:text-white'}`}>
                                 {item.q}
                             </span>
                             <motion.i
@@ -1421,7 +1421,7 @@ export const Modules = () => {
                             transition={{ duration: 0.8, delay: mod.id * 0.1 }}
                         >
                             {/* Interactive Container */}
-                            <div className="relative flex items-center justify-center cursor-pointer">
+                            <div className="relative flex flex-col items-center justify-center cursor-pointer">
 
                                 {/* Rotating Dotted Ring */}
                                 <motion.div
@@ -1438,6 +1438,20 @@ export const Modules = () => {
                                 {/* Center Core Hook with Thin Boundary */}
                                 <div className="absolute w-4 h-4 rounded-full border border-violet-300/50 z-10"></div>
                                 <div className="absolute w-2 h-2 bg-violet-300 rounded-full shadow-[0_0_10px_#a78bfa] z-20 transition-all duration-300 group-hover:bg-white group-hover:scale-150"></div>
+
+                                {/* Domain Name Label - Always Visible */}
+                                <div className="absolute top-16 left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none z-40">
+                                    <motion.div
+                                        className="px-3 py-1.5 bg-black/90 border border-violet-500/60 rounded-md backdrop-blur-sm transition-all duration-300 group-hover:border-amber-400 group-hover:bg-black shadow-[0_0_15px_rgba(168,85,247,0.3)] group-hover:shadow-[0_0_20px_rgba(251,191,36,0.4)]"
+                                        initial={{ opacity: 0, y: -5 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.5, delay: mod.id * 0.1 + 0.3 }}
+                                    >
+                                        <p className="text-xs font-orbitron font-bold text-white text-center transition-all duration-300 group-hover:text-amber-400">
+                                            {mod.title}
+                                        </p>
+                                    </motion.div>
+                                </div>
 
                                 {/* Styles for CSS Pause */}
                                 <style>{`
